@@ -2,7 +2,7 @@
 
 {include file="menu.tpl"}
 <td><a href="{$SCRIPT_NAME}?action=close&view=menu"  >
-	<img src="images/up.gif" width="32" height="32" /></a>
+	<img src="images/close.png" width="32" height="32" /></a>
 </td>
 <table border="0" >
 	<th bgcolor="#d1d1d1">id     </th>
@@ -23,7 +23,7 @@
 			<img src="images/edit.png" width="32" height="32" /></a>
 		</td>
         <td><a href="{$SCRIPT_NAME}?action=delete&id={$entry.id}&masterId={$masterId}">
-			<img src="images/delete.jpg" width="32" height="32" /></a>
+			<img src="images/delete.png" width="32" height="32" /></a>
 		</td>
 	</tr>
     {foreachelse}
@@ -36,22 +36,22 @@
 	<tr>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goFirst&masterId={$masterId}">
-				<img src="images/first.gif" />
+				<img src="images/first.png" />
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goPrev&masterId={$masterId}">
-				<img src="images/prev.gif" />
+				<img src="images/prev.png" />
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goNext&masterId={$masterId}">
-				<img src="images/next.gif" />
+				<img src="images/next.png" />
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goLast&masterId={$masterId}">
-				<img src="images/last.gif" />
+				<img src="images/last.png" />
 			</a>
 		</td>
 	</tr>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 00:34:29
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 01:58:49
          compiled from "templates/reciboList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8452004894e8c97399d3d76-61230773%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:6582533084e8cef391eac06-56951295%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '302dfccbe04eb745ddcf4c6926a8a708913ce77d' => 
     array (
       0 => 'templates/reciboList.tpl',
-      1 => 1317836947,
+      1 => 1317859111,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8452004894e8c97399d3d76-61230773',
+  'nocache_hash' => '6582533084e8cef391eac06-56951295',
   'function' => 
   array (
   ),
@@ -25,7 +25,7 @@ if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.esc
  echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=close&view=alumno"  >
-	<img src="images/up.gif" width="32" height="32" /></a>
+	<img src="images/up.png" width="32" height="32" /></a>
 </td>
 <table border="0" width="300">
 	<th bgcolor="#d1d1d1">id     </th>
@@ -70,7 +70,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 ?action=delete&id=<?php echo $_smarty_tpl->getVariable('entry')->value['id'];?>
 &masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
-			<img src="images/delete.jpg" width="32" height="32" /></a>
+			<img src="images/delete.png" width="32" height="32" /></a>
 		</td>
 	</tr>
     <?php }} else { ?>
@@ -85,28 +85,28 @@ if ($_smarty_tpl->_count($_from) > 0){
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goFirst&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
-				<img src="images/first.gif" />
+				<img src="images/first.png" />
 			</a>
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goPrev&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
-				<img src="images/prev.gif" />
+				<img src="images/prev.png" />
 			</a>
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goNext&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
-				<img src="images/next.gif" />
+				<img src="images/next.png" />
 			</a>
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goLast&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
-				<img src="images/last.gif" />
+				<img src="images/last.png" />
 			</a>
 		</td>
 	</tr>
