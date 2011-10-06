@@ -2,12 +2,8 @@
 
 {include file="menu.tpl"}
 <td><a href="{$SCRIPT_NAME}?action=close&view=menu"  >
-<<<<<<< HEAD
-	<img src="images/close.png" width="32" height="32" /></a>
-=======
 	<button>&uarr;</button>
 </a>
->>>>>>> beta1
 </td>
 <table border="0" width="300">
 	<th bgcolor="#d1d1d1">&nbsp;</th>
@@ -41,11 +37,7 @@
 			<button>.</button></a>
 		</td>
         <td><a href="{$SCRIPT_NAME}?action=delete&id={$entry.id}">
-<<<<<<< HEAD
-			<img src="images/delete.png" width="32" height="32" /></a>
-=======
 			<button>X</button></a>
->>>>>>> beta1
 		</td>
 	</tr>
     {foreachelse}
@@ -58,43 +50,27 @@
 	<tr>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goFirst">
-<<<<<<< HEAD
-				<img src="images/first.png" />
-=======
 				<button>&#124;&lt;</button></a>
->>>>>>> beta1
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goPrev">
-<<<<<<< HEAD
-				<img src="images/prev.png" />
-=======
 				<button>&lt;</button></a>
->>>>>>> beta1
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goNext">
-<<<<<<< HEAD
-				<img src="images/next.png" />
-=======
 				<button>&gt;</button></a>
->>>>>>> beta1
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goLast">
-<<<<<<< HEAD
-				<img src="images/last.png" />
-=======
 				<button>&gt;&#124;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=add&view=alumno">
 				<button>+</button></a>
->>>>>>> beta1
 			</a>
 		</td>
 	</tr>
