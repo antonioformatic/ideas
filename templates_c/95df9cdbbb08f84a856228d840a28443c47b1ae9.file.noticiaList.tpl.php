@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-05 19:49:35
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:11:09
          compiled from "templates/noticiaList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8127408224e8c9801ae72c2-75545416%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:10492542834e8d629d0ebb15-06678410%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '95df9cdbbb08f84a856228d840a28443c47b1ae9' => 
     array (
       0 => 'templates/noticiaList.tpl',
-      1 => 1317836947,
+      1 => 1317888541,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8127408224e8c9801ae72c2-75545416',
+  'nocache_hash' => '10492542834e8d629d0ebb15-06678410',
   'function' => 
   array (
   ),
@@ -25,8 +25,8 @@ if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.esc
  echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=close&view=menu"  >
-	<img src="images/up.gif" width="32" height="32" /></a>
-</td>
+	<button>&uarr;</button>
+</a>
 <table border="0" >
 	<th bgcolor="#d1d1d1">id     </th>
 	<th bgcolor="#d1d1d1">Titulo</th>
@@ -52,15 +52,13 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</td>        
         <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=edit&id=<?php echo $_smarty_tpl->getVariable('entry')->value['id'];?>
-&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 "  >
-			<img src="images/edit.png" width="32" height="32" /></a>
+			<button>.</button></a>
 		</td>
         <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=delete&id=<?php echo $_smarty_tpl->getVariable('entry')->value['id'];?>
-&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
-			<img src="images/delete.jpg" width="32" height="32" /></a>
+			<button>X</button></a>
 		</td>
 	</tr>
     <?php }} else { ?>
@@ -73,34 +71,33 @@ if ($_smarty_tpl->_count($_from) > 0){
 	<tr>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=goFirst&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
-">
-				<img src="images/first.gif" />
+?action=goFirst">
+				<button>&#124;&lt;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=goPrev&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
-">
-				<img src="images/prev.gif" />
+?action=goPrev">
+				<button>&lt;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=goNext&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
-">
-				<img src="images/next.gif" />
+?action=goNext">
+				<button>&gt;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=goLast&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
-">
-				<img src="images/last.gif" />
+?action=goLast">
+				<button>&gt;&#124;</button></a>
+			</a>
+		</td>
+		<td>
+			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+?action=add&view=alumno">
+				<button>+</button></a>
 			</a>
 		</td>
 	</tr>
 </table>
-<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?view=noticia&action=add&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
-"><img src="images/add.png" width="32" height="32" /></a>
