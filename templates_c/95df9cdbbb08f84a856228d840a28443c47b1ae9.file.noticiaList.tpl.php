@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:11:09
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 12:25:08
          compiled from "templates/noticiaList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:10492542834e8d629d0ebb15-06678410%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:21446468244e8d8204302f61-90880028%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '95df9cdbbb08f84a856228d840a28443c47b1ae9' => 
     array (
       0 => 'templates/noticiaList.tpl',
-      1 => 1317888541,
+      1 => 1317896706,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10492542834e8d629d0ebb15-06678410',
+  'nocache_hash' => '21446468244e8d8204302f61-90880028',
   'function' => 
   array (
   ),
@@ -95,7 +95,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=add&view=alumno">
+?action=add&view=noticia">
 				<button>+</button></a>
 			</a>
 		</td>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:12:04
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:46:50
          compiled from "templates/alumnoForm.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5524043154e8d62d4387645-80669551%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '9dad57d6b0077505ea50e2825e543df97d9362f5' => 
     array (
       0 => 'templates/alumnoForm.tpl',
-      1 => 1317888712,
+      1 => 1317889536,
       2 => 'file',
     ),
   ),

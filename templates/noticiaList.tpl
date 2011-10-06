@@ -55,7 +55,7 @@
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=add&view=alumno">
+			<a href="{$SCRIPT_NAME}?action=add&view=noticia">
 				<button>+</button></a>
 			</a>
 		</td>

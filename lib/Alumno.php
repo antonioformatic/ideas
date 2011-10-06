@@ -1,6 +1,6 @@
 <?php
-require_once('Table.php');
-class Alumno extends Table{
+require_once('MasterTable.php');
+class Alumno extends MasterTable{
 	function __construct() {
 		$this->dbtype = 'mysql';
 		$this->dbname = 'academia';

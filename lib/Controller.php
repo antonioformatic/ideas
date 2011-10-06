@@ -15,7 +15,8 @@ class Controller extends Smarty{
 		session_start();
 		$this->assign('opciones', array(
 			'Alumnos'=>'alumno',
-			'Noticias'=>'noticia'
+			'Noticias'=>'noticia',
+			'Menu'=>'menu'
 		));
 	}
 	function dispatch(){
