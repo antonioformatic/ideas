@@ -33,11 +33,19 @@ class Table{
 
 	function dispatch($controller){
 		$this->tpl = $controller;
+		if(isset($_SESSION['id'])){
+			$this->id = $_SESSION['id'];
+		}
 		if(isset($_REQUEST['id'])){
-			$this->id = $_REQUEST['id'];;
+			$this->id = $_REQUEST['id'];
+			$_SESSION['id'] = $this->id;
+		}
+		if(isset($_SESSION['masterId'])){
+			$this->masterId = $_SESSION['masterId'];
 		}
 		if(isset($_REQUEST['masterId'])){
 			$this->masterId = $_REQUEST['masterId'];
+			$_SESSION['masterId'] = $this->masterId;
 		}
 		if(isset($_REQUEST['action'])){
 			$this->action= $_REQUEST['action']; 

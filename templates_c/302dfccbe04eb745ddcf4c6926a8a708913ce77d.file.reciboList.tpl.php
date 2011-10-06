@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 11:44:53
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 12:51:43
          compiled from "templates/reciboList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5800266484e8d78955b6c30-10767358%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:8869929214e8d883fbd9fc6-12229432%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '302dfccbe04eb745ddcf4c6926a8a708913ce77d' => 
     array (
       0 => 'templates/reciboList.tpl',
-      1 => 1317894290,
+      1 => 1317898300,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '5800266484e8d78955b6c30-10767358',
+  'nocache_hash' => '8869929214e8d883fbd9fc6-12229432',
   'function' => 
   array (
   ),
@@ -107,7 +107,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=add&view=recibo">
+?action=add&view=recibo&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
+">
 				<button>+</button></a>
 			</a>
 		</td>

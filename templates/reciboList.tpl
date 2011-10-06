@@ -63,7 +63,7 @@
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=add&view=recibo">
+			<a href="{$SCRIPT_NAME}?action=add&view=recibo&masterId={$masterId}">
 				<button>+</button></a>
 			</a>
 		</td>

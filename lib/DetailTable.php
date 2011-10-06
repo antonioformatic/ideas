@@ -60,6 +60,8 @@ class DetailTable extends Table{
 			foreach ($this->pdo->query($sql) as $row) {
 				$rows[] = $row;
 			}
+			var_dump($sql);
+
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();
 			return false;

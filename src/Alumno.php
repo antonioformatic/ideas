@@ -1,5 +1,5 @@
 <?php
-require_once('MasterTable.php');
+require_once(LIB_DIR .'MasterTable.php');
 class Alumno extends MasterTable{
 	function __construct() {
 		$this->dbtype = 'mysql';

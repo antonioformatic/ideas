@@ -1,5 +1,5 @@
 <?php
-require_once('Table.php');
+require_once(LIB_DIR .'Table.php');
 class Noticia extends Table{
 	function __construct() {
 		$this->dbtype = 'mysql';

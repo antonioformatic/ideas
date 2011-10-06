@@ -1,5 +1,5 @@
 <?php
-require_once('DetailTable.php');
+require_once(LIB_DIR .'DetailTable.php');
 class Recibo extends DetailTable{
 	function __construct() {
 		$this->dbtype = 'mysql';
