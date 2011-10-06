@@ -16,7 +16,7 @@
 			$(function() {
 				$("#actor").autocomplete({
 					source : "search.php?database=academia&table=alumno&fieldSearch=Nombre&fieldRet=id",
-					minLength : 2,
+					minLength : 0,
 					focus : function(event, ui) {
 						$("#actor").val(ui.item.ret);
 						return false;
