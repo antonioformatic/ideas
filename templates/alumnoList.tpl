@@ -2,7 +2,8 @@
 
 {include file="menu.tpl"}
 <td><a href="{$SCRIPT_NAME}?action=close&view=menu"  >
-	<img src="images/up.gif" width="32" height="32" /></a>
+	<button>&uarr;</button>
+</a>
 </td>
 <table border="0" width="300">
 	<th bgcolor="#d1d1d1">&nbsp;</th>
@@ -12,9 +13,10 @@
 	<th bgcolor="#d1d1d1">Telefono</th>
 	<th bgcolor="#d1d1d1">Correo eletrónico</th>
 	{foreach from=$data item="entry"}
-    <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=false}">
+    <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
         <td><a href="{$SCRIPT_NAME}?action=open&view=recibo&id={$entry.id}&masterId={$entry.id}"  >
-			<img src="images/open.png" width="32" height="32" /></a>
+			<button>&darr;</button>
+			</a>
 		</td>
 		<td>
 			{$entry.id|escape}
@@ -32,10 +34,10 @@
 			{$entry.Email|escape}
 		</td>        
         <td><a href="{$SCRIPT_NAME}?action=edit&id={$entry.id}"  >
-			<img src="images/edit.png" width="32" height="32" /></a>
+			<button>.</button></a>
 		</td>
         <td><a href="{$SCRIPT_NAME}?action=delete&id={$entry.id}">
-			<img src="images/delete.jpg" width="32" height="32" /></a>
+			<button>X</button></a>
 		</td>
 	</tr>
     {foreachelse}
@@ -48,24 +50,28 @@
 	<tr>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goFirst">
-				<img src="images/first.gif" />
+				<button>&#124;&lt;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goPrev">
-				<img src="images/prev.gif" />
+				<button>&lt;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goNext">
-				<img src="images/next.gif" />
+				<button>&gt;</button></a>
 			</a>
 		</td>
 		<td>
 			<a href="{$SCRIPT_NAME}?action=goLast">
-				<img src="images/last.gif" />
+				<button>&gt;&#124;</button></a>
+			</a>
+		</td>
+		<td>
+			<a href="{$SCRIPT_NAME}?action=add&view=alumno">
+				<button>+</button></a>
 			</a>
 		</td>
 	</tr>
 </table>
-<a href="{$SCRIPT_NAME}?action=add&view=alumno"><img src="images/add.png" width="32" height="32" /></a>

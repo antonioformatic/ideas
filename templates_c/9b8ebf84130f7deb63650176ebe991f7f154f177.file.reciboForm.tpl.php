@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-05 17:29:16
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:12:11
          compiled from "templates/reciboForm.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1266439334e8c77ccd40589-46872562%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7128135554e8d62db59c4d9-92030034%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9b8ebf84130f7deb63650176ebe991f7f154f177' => 
     array (
       0 => 'templates/reciboForm.tpl',
-      1 => 1317727639,
+      1 => 1317888719,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1266439334e8c77ccd40589-46872562',
+  'nocache_hash' => '7128135554e8d62db59c4d9-92030034',
   'function' => 
   array (
   ),
@@ -69,6 +69,7 @@ $_smarty_tpl->decodeProperties(array (
 	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['Pagado']);?>
 " 
   >
+  <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="db_action" value="<?php echo $_smarty_tpl->getVariable('db_action')->value;?>
 " />

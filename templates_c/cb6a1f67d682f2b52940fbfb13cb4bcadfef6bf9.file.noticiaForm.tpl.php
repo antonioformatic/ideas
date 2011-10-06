@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 00:35:17
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:16:50
          compiled from "templates/noticiaForm.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:15618385014e8c93aec48d65-79465064%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12245837564e8d63f2198388-28823840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cb6a1f67d682f2b52940fbfb13cb4bcadfef6bf9' => 
     array (
       0 => 'templates/noticiaForm.tpl',
-      1 => 1317836126,
+      1 => 1317889006,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '15618385014e8c93aec48d65-79465064',
+  'nocache_hash' => '12245837564e8d63f2198388-28823840',
   'function' => 
   array (
   ),
@@ -47,10 +47,8 @@ $_smarty_tpl->decodeProperties(array (
   >
   <br />
  Texto:
-  <textarea name="texto" rows="4" cols="40">
-	  <?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['texto']);?>
- 
-  </textarea>
+  <textarea name="texto" rows="4" cols="40"><?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['texto']);?>
+</textarea>
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="db_action" value="<?php echo $_smarty_tpl->getVariable('db_action')->value;?>
