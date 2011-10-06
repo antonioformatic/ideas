@@ -12,31 +12,31 @@
 	<th bgcolor="#d1d1d1">DNI    </th>
 	<th bgcolor="#d1d1d1">Telefono</th>
 	<th bgcolor="#d1d1d1">Correo eletrónico</th>
-	{foreach from=$data item="entry"}
+	{foreach from=$records item="record"}
     <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
-        <td><a href="{$SCRIPT_NAME}?action=open&view=recibo&id={$entry.id}&masterId={$entry.id}"  >
+        <td><a href="{$SCRIPT_NAME}?action=open&view=recibo&id={$record.id}&masterId={$record.id}"  >
 			<button>&darr;</button>
 			</a>
 		</td>
 		<td>
-			{$entry.id|escape}
+			{$record.id|escape}
 		</td>        
 		<td>
-			{$entry.Nombre|escape}
+			{$record.Nombre|escape}
 		</td>        
 		<td>
-			{$entry.DNI|escape}
+			{$record.DNI|escape}
 		</td>        
 		<td>
-			{$entry.Telefono|escape}
+			{$record.Telefono|escape}
 		</td>        
 		<td>
-			{$entry.Email|escape}
+			{$record.Email|escape}
 		</td>        
-        <td><a href="{$SCRIPT_NAME}?action=edit&id={$entry.id}"  >
+        <td><a href="{$SCRIPT_NAME}?action=edit&id={$record.id}"  >
 			<button>.</button></a>
 		</td>
-        <td><a href="{$SCRIPT_NAME}?action=delete&id={$entry.id}">
+        <td><a href="{$SCRIPT_NAME}?action=delete&id={$record.id}">
 			<button>X</button></a>
 		</td>
 	</tr>

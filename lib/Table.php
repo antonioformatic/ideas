@@ -14,6 +14,7 @@ class Table{
 	var $recsByPage = 5;
 	var $formTemplate = '';
 	var $listTemplate = '';
+	var $templateData = array();
 	var $table = '';
 	var $id = -1;
 	var $masterId = -1;
@@ -78,7 +79,7 @@ class Table{
 			$this->displayForm();
 			break;
 		case 'submit':
-			$this->mungeFormData($_POST);
+			//$this->mungeFormData($_POST);
 			if($this->isValidForm($_POST)) {
 				if($_POST['db_action']== 'update'){
 					$this->updateEntry($_POST);
@@ -150,24 +151,26 @@ class Table{
 	}
 	function displayForm($formvars = array()) {
 		if(empty($formvars)){
-			$this->tpl->assign('post',null);
+			$this->tpl->assign('formVars',null);
 			$this->tpl->assign('masterId',$this->masterId);
 			$this->tpl->assign('db_action','add');
 		}else{
 			// assign the form vars
-			$this->tpl->assign('post',$formvars);
+			$this->tpl->assign('formVars',$formvars);
 			$this->tpl->assign('masterId',$this->masterId);
 			$this->tpl->assign('id',$this->id);
 			$this->tpl->assign('db_action','update');
 		}
 
 		$this->tpl->assign('error', $this->error);
+		$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
 		$this->tpl->display($this->formTemplate);
 	}
-	function displayList($data = array()) {
-		$this->tpl->assign('data', $data);
+	function displayList($records = array()) {
+		$this->tpl->assign('records', $records);
 		$this->tpl->assign('masterId', $this->masterId);
 		$this->tpl->assign('id',$this->id);
+		$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
 		$this->tpl->display($this->listTemplate);        
 	}
 	function delete(){
@@ -192,7 +195,11 @@ class Table{
 			$rh = $this->pdo->prepare($q);
 			$v = array();
 			foreach($this->fields as $field){
-				$v[] = $formvars[$field];
+				if(is_array($formvars[$field])){
+					$v[] = implode(",", $formvars[$field]);
+				}else{
+					$v[] = $formvars[$field];
+				}
 			}
 			$v[] = $this->id;
 			$rh->execute($v);
@@ -218,7 +225,11 @@ class Table{
 			$rh = $this->pdo->prepare($q);
 			$v = array();
 			foreach($this->fields as $field){
-				$v[] = $formvars[$field];
+				if(is_array($formvars[$field])){
+					$v[] = implode(",", $formvars[$field]);
+				}else{
+					$v[] = $formvars[$field];
+				}
 			}
 			$rh->execute($v);
 		} catch (PDOException $e) {

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 14:41:51
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 17:30:01
          compiled from "templates/noticiaList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:21446468244e8d8204302f61-90880028%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16821301974e8dc9795b6c86-13902822%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '95df9cdbbb08f84a856228d840a28443c47b1ae9' => 
     array (
       0 => 'templates/noticiaList.tpl',
-      1 => 1317897722,
+      1 => 1317913194,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '21446468244e8d8204302f61-90880028',
+  'nocache_hash' => '16821301974e8dc9795b6c86-13902822',
   'function' => 
   array (
   ),
@@ -31,32 +31,32 @@ if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.esc
 	<th bgcolor="#d1d1d1">id     </th>
 	<th bgcolor="#d1d1d1">Titulo</th>
 	<th bgcolor="#d1d1d1">Texto</th>
-	<?php  $_smarty_tpl->tpl_vars["entry"] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('data')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+	<?php  $_smarty_tpl->tpl_vars["record"] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('records')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars["entry"]->key => $_smarty_tpl->tpl_vars["entry"]->value){
+    foreach ($_from as $_smarty_tpl->tpl_vars["record"]->key => $_smarty_tpl->tpl_vars["record"]->value){
 ?>
     <tr bgcolor="<?php echo smarty_function_cycle(array('values'=>"#dedede,#eeeeee",'advance'=>false),$_smarty_tpl);?>
 ">
 		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('entry')->value['id']);?>
+			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['id']);?>
 
 		</td>        
 		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('entry')->value['titulo']);?>
+			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['titulo']);?>
 
 		</td>        
 		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('entry')->value['texto']);?>
+			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['texto']);?>
 
 		</td>        
         <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=edit&id=<?php echo $_smarty_tpl->getVariable('entry')->value['id'];?>
+?action=edit&id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
 "  >
 			<button>.</button></a>
 		</td>
         <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=delete&id=<?php echo $_smarty_tpl->getVariable('entry')->value['id'];?>
+?action=delete&id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
 ">
 			<button>X</button></a>
 		</td>

@@ -19,31 +19,31 @@
   <input 
 	  type="text" 
 	  name="Nombre" 
-	  value="{$post.Nombre|escape}" 
+	  value="{$formVars.Nombre|escape}" 
   >
   <br />
   DNI
   <input 
 	  type="text" 
 	  name="DNI" 
-	  value="{$post.DNI|escape}" 
+	  value="{$formVars.DNI|escape}" 
   >
   <br />
   Teléfono
   <input 
 	  type="text" 
 	  name="Telefono" 
-	  value="{$post.Telefono|escape}" 
+	  value="{$formVars.Telefono|escape}" 
   >
   <br />
   Correo electrónico
   <input 
 	  type="text" 
 	  name="Email" 
-	  value="{$post.Email|escape}" 
+	  value="{$formVars.Email|escape}" 
   >
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="db_action" value="{$db_action}" />
-  <input type="hidden" name="id" value="{$post.id}" />
+  <input type="hidden" name="id" value="{$formVars.id}" />
 </form>

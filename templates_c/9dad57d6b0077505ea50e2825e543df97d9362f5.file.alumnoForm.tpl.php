@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 10:46:50
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 21:08:11
          compiled from "templates/alumnoForm.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5524043154e8d62d4387645-80669551%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19828581014e8dfc9baec939-41347031%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9dad57d6b0077505ea50e2825e543df97d9362f5' => 
     array (
       0 => 'templates/alumnoForm.tpl',
-      1 => 1317889536,
+      1 => 1317914462,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '5524043154e8d62d4387645-80669551',
+  'nocache_hash' => '19828581014e8dfc9baec939-41347031',
   'function' => 
   array (
   ),
@@ -41,7 +41,7 @@ $_smarty_tpl->decodeProperties(array (
   <input 
 	  type="text" 
 	  name="Nombre" 
-	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['Nombre']);?>
+	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('formVars')->value['Nombre']);?>
 " 
   >
   <br />
@@ -49,7 +49,7 @@ $_smarty_tpl->decodeProperties(array (
   <input 
 	  type="text" 
 	  name="DNI" 
-	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['DNI']);?>
+	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('formVars')->value['DNI']);?>
 " 
   >
   <br />
@@ -57,7 +57,7 @@ $_smarty_tpl->decodeProperties(array (
   <input 
 	  type="text" 
 	  name="Telefono" 
-	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['Telefono']);?>
+	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('formVars')->value['Telefono']);?>
 " 
   >
   <br />
@@ -65,13 +65,13 @@ $_smarty_tpl->decodeProperties(array (
   <input 
 	  type="text" 
 	  name="Email" 
-	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('post')->value['Email']);?>
+	  value="<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('formVars')->value['Email']);?>
 " 
   >
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="db_action" value="<?php echo $_smarty_tpl->getVariable('db_action')->value;?>
 " />
-  <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('post')->value['id'];?>
+  <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('formVars')->value['id'];?>
 " />
 </form>

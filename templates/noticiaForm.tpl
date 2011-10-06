@@ -20,11 +20,11 @@
   <input 
 	  type="text" 
 	  name="titulo" 
-	  value="{$post.titulo|escape}" 
+	  value="{$formVars.titulo|escape}" 
   >
   <br />
  Texto:
-  <textarea name="texto" rows="4" cols="40">{$post.texto|escape}</textarea>
+  <textarea name="texto" rows="4" cols="40">{$formVars.texto|escape}</textarea>
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="db_action" value="{$db_action}" />

@@ -36,8 +36,6 @@ class DetailTable extends Table{
 				$v[] = $formvars[$field];
 			}
 			$v[] = $this->masterId;
-			echo "Los valores son: ";
-			var_dump($v);
 			$rh->execute($v);
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();
@@ -60,7 +58,6 @@ class DetailTable extends Table{
 			foreach ($this->pdo->query($sql) as $row) {
 				$rows[] = $row;
 			}
-			var_dump($sql);
 
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();

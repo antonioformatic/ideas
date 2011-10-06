@@ -6,18 +6,18 @@
 </a>
 <table border="0" >
 	<th bgcolor="#d1d1d1">id     </th>
-	<th bgcolor="#d1d1d1">Titulo</th>
-	<th bgcolor="#d1d1d1">Texto</th>
+	<th bgcolor="#d1d1d1">Nombre</th>
+	<th bgcolor="#d1d1d1">Actividades</th>
 	{foreach from=$records item="record"}
     <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=false}">
 		<td>
 			{$record.id|escape}
 		</td>        
 		<td>
-			{$record.titulo|escape}
+			{$record.nombre|escape}
 		</td>        
 		<td>
-			{$record.texto|escape}
+			{$record.actividades|escape}
 		</td>        
         <td><a href="{$SCRIPT_NAME}?action=edit&id={$record.id}"  >
 			<button>.</button></a>
@@ -55,7 +55,7 @@
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=add&view=noticia">
+			<a href="{$SCRIPT_NAME}?action=add&view=instalacion">
 				<button>+</button></a>
 			</a>
 		</td>

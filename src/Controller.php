@@ -4,12 +4,14 @@ require(SRC_DIR . 'Alumno.php');
 require(SRC_DIR . 'Recibo.php');
 require(SRC_DIR . 'Noticia.php');
 require(SRC_DIR . 'Menu.php');
+require(SRC_DIR . 'Instalacion.php');
 class Controller extends BasicController{
 	function __construct() {
 		parent::__construct();
 		$this->assign('opciones', array(
 			'Alumnos'=>'alumno',
 			'Noticias'=>'noticia',
+			'Instalaciones'=>'instalacion',
 			'Menu'=>'menu'
 		));
 	}
@@ -31,6 +33,9 @@ class Controller extends BasicController{
 			break;
 		case 'noticia':
 			$object = new Noticia; 
+			break;
+		case 'instalacion':
+			$object = new Instalacion; 
 			break;
 		default:
 			$object = new Menu; 

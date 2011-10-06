@@ -10,27 +10,27 @@
 	<th bgcolor="#d1d1d1">Asignaturas</th>
 	<th bgcolor="#d1d1d1">Importe</th>
 	<th bgcolor="#d1d1d1">Pagado</th>
-	{foreach from=$data item="entry"}
+	{foreach from=$records item="record"}
     <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
 		<td>
-			{$entry.id|escape}
+			{$record.id|escape}
 		</td>        
 		<td>
-			{$entry.Fecha|escape}
+			{$record.Fecha|escape}
 		</td>        
 		<td>
-			{$entry.Asignaturas|escape}
+			{$record.Asignaturas|escape}
 		</td>        
 		<td>
-			{$entry.Importe|escape}
+			{$record.Importe|escape}
 		</td>        
 		<td>
-			{$entry.Pagado|escape}
+			{$record.Pagado|escape}
 		</td>        
-        <td><a href="{$SCRIPT_NAME}?action=edit&id={$entry.id}&masterId={$masterId}"  >
+        <td><a href="{$SCRIPT_NAME}?action=edit&id={$record.id}&masterId={$masterId}"  >
 			<button>.</button></a>
 		</td>
-        <td><a href="{$SCRIPT_NAME}?action=delete&id={$entry.id}&masterId={$masterId}">
+        <td><a href="{$SCRIPT_NAME}?action=delete&id={$record.id}&masterId={$masterId}">
 			<button>X</button></a>
 		</td>
 	</tr>

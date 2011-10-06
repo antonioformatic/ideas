@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 21:06:24
-         compiled from "templates/reciboList.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3495652514e8dfc309c2007-05648820%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 17:08:33
+         compiled from "templates/instalacionList.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:16508400334e8dc4710434b4-83905163%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '302dfccbe04eb745ddcf4c6926a8a708913ce77d' => 
+    '5530b62ca8b5fe9bdbb12b6c96d5aa6e62fc5f15' => 
     array (
-      0 => 'templates/reciboList.tpl',
-      1 => 1317913146,
+      0 => 'templates/instalacionList.tpl',
+      1 => 1317913178,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3495652514e8dfc309c2007-05648820',
+  'nocache_hash' => '16508400334e8dc4710434b4-83905163',
   'function' => 
   array (
   ),
@@ -24,51 +24,39 @@ if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.esc
 <?php $_template = new Smarty_Internal_Template("menu.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=close&view=alumno"  >
+?action=close&view=menu"  >
 	<button>&uarr;</button>
-</td>
-<table border="0" width="300">
+</a>
+<table border="0" >
 	<th bgcolor="#d1d1d1">id     </th>
-	<th bgcolor="#d1d1d1">Fecha  </th>
-	<th bgcolor="#d1d1d1">Asignaturas</th>
-	<th bgcolor="#d1d1d1">Importe</th>
-	<th bgcolor="#d1d1d1">Pagado</th>
+	<th bgcolor="#d1d1d1">Nombre</th>
+	<th bgcolor="#d1d1d1">Actividades</th>
 	<?php  $_smarty_tpl->tpl_vars["record"] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('records')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars["record"]->key => $_smarty_tpl->tpl_vars["record"]->value){
 ?>
-    <tr bgcolor="<?php echo smarty_function_cycle(array('values'=>"#dedede,#eeeeee",'advance'=>true),$_smarty_tpl);?>
+    <tr bgcolor="<?php echo smarty_function_cycle(array('values'=>"#dedede,#eeeeee",'advance'=>false),$_smarty_tpl);?>
 ">
 		<td>
 			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['id']);?>
 
 		</td>        
 		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['Fecha']);?>
+			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['nombre']);?>
 
 		</td>        
 		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['Asignaturas']);?>
-
-		</td>        
-		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['Importe']);?>
-
-		</td>        
-		<td>
-			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['Pagado']);?>
+			<?php echo smarty_modifier_escape($_smarty_tpl->getVariable('record')->value['actividades']);?>
 
 		</td>        
         <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=edit&id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
-&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 "  >
 			<button>.</button></a>
 		</td>
         <td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=delete&id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
-&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
 ">
 			<button>X</button></a>
 		</td>
@@ -107,8 +95,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</td>
 		<td>
 			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
-?action=add&view=recibo&masterId=<?php echo $_smarty_tpl->getVariable('masterId')->value;?>
-">
+?action=add&view=instalacion">
 				<button>+</button></a>
 			</a>
 		</td>
