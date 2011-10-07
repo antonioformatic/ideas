@@ -30,3 +30,4 @@
   <input type="hidden" name="db_action" value="{$db_action}" />
   <input type="hidden" name="id" value="{$id}" />
 </form>
+{include file="footer.tpl"}

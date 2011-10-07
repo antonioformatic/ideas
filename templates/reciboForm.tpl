@@ -49,3 +49,4 @@
   <input type="hidden" name="masterId" value="{$masterId}" />
   <input type="hidden" name="id" value="{$id}" />
 </form>
+{include file="footer.tpl"}

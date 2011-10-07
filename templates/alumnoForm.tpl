@@ -1,4 +1,5 @@
 {* Smarty *}
+{include file="header.tpl"}
 {include file="menu.tpl"}
 <form action="{$SCRIPT_NAME}?action=submit" method="post">
   <table border="0">
@@ -15,6 +16,14 @@
     {/if}
   </table>
 
+  Buscar esto:
+				<input 
+					class=      "lookup" 
+					database=   "academia" 
+					table=      "alumno" 
+					fieldSearch="Nombre"
+					fieldRet   ="id"
+				/>
   Nombre: 
   <input 
 	  type="text" 
@@ -47,3 +56,4 @@
   <input type="hidden" name="db_action" value="{$db_action}" />
   <input type="hidden" name="id" value="{$formVars.id}" />
 </form>
+{include file="footer.tpl"}
