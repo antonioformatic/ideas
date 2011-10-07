@@ -10,6 +10,7 @@ class Usuario extends Table{
 				'password',
 				'nivel' 
 				);
+		$this->level = 10;
 		parent::__construct();
 	}
 

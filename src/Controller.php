@@ -49,12 +49,13 @@ class Controller extends BasicController{
 		case 'login':
 			$object = new Logger; 
 			if($object->login($this)){
-				$object = new Alumno; 
+				$object = new Inicio; 
 			}
 			break;
 		case 'logout':
 			$object = new Logger; 
 			$object->logout();
+			$object = new Inicio; 
 			break;
 		case 'inicio':
 		default:
