@@ -18,6 +18,9 @@ class Instalacion extends Table{
 				'cine',
 				'teatro',
 				'video'
+			),
+			'colores' => array(
+				'rojo', 'verde', 'azul'
 			)
 		);
 		$this->templateData['instalacionList.tpl'] = array(

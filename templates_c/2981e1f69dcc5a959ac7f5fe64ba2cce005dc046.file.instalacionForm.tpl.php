@@ -1,24 +1,23 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-10-06 21:26:03
+<?php /* Smarty version Smarty-3.0.7, created on 2011-10-07 11:40:37
          compiled from "templates/instalacionForm.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:513374264e8e00cbde68e3-48272569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19377878654e8ec915b0d473-26477933%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2981e1f69dcc5a959ac7f5fe64ba2cce005dc046' => 
     array (
       0 => 'templates/instalacionForm.tpl',
-      1 => 1317929144,
+      1 => 1317980433,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '513374264e8e00cbde68e3-48272569',
+  'nocache_hash' => '19377878654e8ec915b0d473-26477933',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_function_html_select_date')) include 'smarty/plugins/function.html_select_date.php';
-if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.escape.php';
+<?php if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.escape.php';
 ?>
 
 <?php $_template = new Smarty_Internal_Template("menu.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
@@ -36,8 +35,6 @@ if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.esc
       </tr>
     <?php }?>
   </table>
-<?php echo smarty_function_html_select_date(array(),$_smarty_tpl);?>
-
   Nombre: 
   <input 
 	  type="text" 
@@ -79,3 +76,5 @@ if ($_smarty_tpl->_count($_from) > 0){
   <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('id')->value;?>
 " />
 </form>
+<?php $_template = new Smarty_Internal_Template("footer.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php unset($_template);?>
