@@ -2,16 +2,12 @@
 require_once(LIB_DIR .'Table.php');
 class Noticia extends Table{
 	function __construct() {
-		$this->dbtype = 'mysql';
-		$this->dbname = 'academia';
-		$this->dbhost = 'localhost';
-		$this->dbuser = 'root';
-		$this->dbpass = 'secreto';
 		$this->table = 'noticia';
 		$this->formTemplate = 'noticiaForm.tpl';
 		$this->listTemplate = 'noticiaList.tpl';
 		$this->fields= array(
-				'titulo', 'texto'
+				'titulo', 
+				'texto'
 		);
 		parent::__construct();
 	}

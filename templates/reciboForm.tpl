@@ -1,5 +1,6 @@
 {* Smarty *}
 
+{include file="header.tpl"}
 {include file="menu.tpl"}
 <form action="{$SCRIPT_NAME}?action=submit" method="post">
   <table border="1">

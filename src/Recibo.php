@@ -2,18 +2,16 @@
 require_once(LIB_DIR .'DetailTable.php');
 class Recibo extends DetailTable{
 	function __construct() {
-		$this->dbtype = 'mysql';
-		$this->dbname = 'academia';
-		$this->dbhost = 'localhost';
-		$this->dbuser = 'root';
-		$this->dbpass = 'secreto';
 		$this->table = 'recibo';
 		$this->masterTable= 'alumno';
 		$this->externalIndex= 'alumno_id';
 		$this->formTemplate = 'reciboForm.tpl';
 		$this->listTemplate = 'reciboList.tpl';
 		$this->fields= array(
-				'Fecha', 'Asignaturas', 'Importe', 'Pagado'
+				'Fecha', 
+				'Asignaturas', 
+				'Importe', 
+				'Pagado'
 		);
 		parent::__construct();
 	}

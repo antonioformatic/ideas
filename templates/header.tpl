@@ -37,3 +37,7 @@
 	</script>
 </head>
 <body>
+<div style="text-align:center;">
+<h1>PROGRAMA DE CONTROL GENERAL DE LA SITUACION </h1>
+</div>
+<hr>

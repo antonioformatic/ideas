@@ -2,16 +2,14 @@
 require_once(LIB_DIR .'MasterTable.php');
 class Alumno extends MasterTable{
 	function __construct() {
-		$this->dbtype = 'mysql';
-		$this->dbname = 'academia';
-		$this->dbhost = 'localhost';
-		$this->dbuser = 'root';
-		$this->dbpass = 'secreto';
-		$this->table = 'alumno';
+		$this->table        = 'alumno';
 		$this->formTemplate = 'alumnoForm.tpl';
 		$this->listTemplate = 'alumnoList.tpl';
 		$this->fields= array(
-				'Nombre', 'DNI', 'Telefono', 'Email'
+				'Nombre', 
+				'DNI', 
+				'Telefono', 
+				'Email'
 		);
 		parent::__construct();
 	}
@@ -28,7 +26,6 @@ class Alumno extends MasterTable{
 			$this->error = 'DNI_empty';
 			return false; 
 		}
-
 		return true;
 	}
 }
