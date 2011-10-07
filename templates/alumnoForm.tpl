@@ -16,14 +16,19 @@
     {/if}
   </table>
 
-  Buscar esto:
-				<input 
-					class=      "lookup" 
-					database=   "academia" 
-					table=      "alumno" 
-					fieldSearch="Nombre"
-					fieldRet   ="id"
-				/>
+<td><a href="{$SCRIPT_NAME}?action=imprimir"  >
+	<button>Imprimir</button>
+</a>
+<p>
+  Buscar alumno por su nombre:
+	<input 
+		class=      "lookup" 
+		database=   "academia" 
+		table=      "alumno" 
+		fieldSearch="Nombre"
+		fieldRet   ="id"
+	/>
+<p>
   Nombre: 
   <input 
 	  type="text" 

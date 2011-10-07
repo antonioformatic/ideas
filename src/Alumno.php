@@ -14,6 +14,20 @@ class Alumno extends MasterTable{
 		$this->level = 10;
 		parent::__construct();
 	}
+	function dispatch($controller){
+		if(isset($_REQUEST['action'])){
+			$this->action= $_REQUEST['action']; 
+		}
+		switch($this->action) {
+		case 'imprimir':
+			$controller->assign('nombre',"Michel Jackson"); 
+			$controller->display('imprimir.tpl');        
+			break;
+		default:
+			parent::dispatch($controller);
+			break;
+		}
+	}
 
 	function isValidForm($formvars) {
 		$this->error = null;

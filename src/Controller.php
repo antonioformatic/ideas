@@ -67,6 +67,11 @@ class Controller extends BasicController{
 		}
 		if($object->getLevel() > $_SESSION['nivel']){
 			$object = new Rechazo; 
+			$this->assign('nivel_usuario',  0); 
+		}else{
+			$this->assign('id_usuario',     $_SESSION['id']); 
+			$this->assign('nombre_usuario', $_SESSION['nombre']); 
+			$this->assign('nivel_usuario',  $_SESSION['nivel']); 
 		}
 		$object->dispatch($this);
 	}
