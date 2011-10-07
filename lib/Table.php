@@ -3,13 +3,6 @@ class Table{
 	var $pdo = null;
 	var $tpl = null;
 	var $error = null;
-
-	var $dbtype = null;
-	var $dbname = null;
-	var $dbhost = null;
-	var $dbuser = null;
-	var $dbpass = null;
-
 	var $fromRec = 0;
 	var $recsByPage = 5;
 	var $formTemplate = '';
@@ -22,14 +15,21 @@ class Table{
 	var $fields = array();
 
 	function __construct() {
+		global $dbtype;
+		global $dbname;
+		global $dbhost;
+		global $dbuser;
+		global $dbpass;
 		try {
-			$dsn = "{$this->dbtype}:host={$this->dbhost};dbname={$this->dbname}";
-			$this->pdo =  new PDO($dsn,$this->dbuser,$this->dbpass);
+			$this->pdo=new PDO("$dbtype:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
 		} catch (PDOException $e) {
 			print "Error de conexion!: " . $e->getMessage();
 			die();
 		}	
 		session_start();
+	}
+	function __destruct() {
+		$this->pdo = null;
 	}
 
 	function dispatch($controller){
@@ -79,7 +79,6 @@ class Table{
 			$this->displayForm();
 			break;
 		case 'submit':
-			//$this->mungeFormData($_POST);
 			if($this->isValidForm($_POST)) {
 				if($_POST['db_action']== 'update'){
 					$this->updateEntry($_POST);
@@ -237,11 +236,6 @@ class Table{
 			return false;
 		}	
 		return true;
-	}
-	function mungeFormData(&$formvars) {
-		foreach($this->fields as $field){
-			$formvars[$field] = trim($formvars[$field]);
-		}
 	}
 	function getRecords($id = -1){
 		if($id == -1){

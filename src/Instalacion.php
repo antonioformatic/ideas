@@ -2,25 +2,18 @@
 require_once(LIB_DIR .'Table.php');
 class Instalacion extends Table{
 	function __construct() {
-		$this->dbtype = 'mysql';
-		$this->dbname = 'academia';
-		$this->dbhost = 'localhost';
-		$this->dbuser = 'root';
-		$this->dbpass = 'secreto';
 		$this->table = 'instalacion';
 		$this->formTemplate = 'instalacionForm.tpl';
 		$this->listTemplate = 'instalacionList.tpl';
 		$this->fields= array(
-				'nombre', 'actividades'
+				'nombre', 
+				'actividades'
 		);
 		$this->templateData['instalacionForm.tpl'] = array(
 			'posiblesActividades' => array(
 				'cine',
 				'teatro',
 				'video'
-			),
-			'colores' => array(
-				'rojo', 'verde', 'azul'
 			)
 		);
 		$this->templateData['instalacionList.tpl'] = array(
