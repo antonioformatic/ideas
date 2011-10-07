@@ -11,6 +11,7 @@ class Alumno extends MasterTable{
 				'Telefono', 
 				'Email'
 		);
+		$this->level = 10;
 		parent::__construct();
 	}
 

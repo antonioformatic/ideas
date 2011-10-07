@@ -3,16 +3,22 @@ require(LIB_DIR . 'BasicController.php');
 require(SRC_DIR . 'Alumno.php');
 require(SRC_DIR . 'Recibo.php');
 require(SRC_DIR . 'Noticia.php');
-require(SRC_DIR . 'Menu.php');
+require(SRC_DIR . 'Usuario.php');
+require(SRC_DIR . 'Logger.php');
+require(SRC_DIR . 'Inicio.php');
+require(SRC_DIR . 'Rechazo.php');
 require(SRC_DIR . 'Instalacion.php');
 class Controller extends BasicController{
 	function __construct() {
 		parent::__construct();
 		$this->assign('opciones', array(
+			'Inicio'=>'inicio',
 			'Alumnos'=>'alumno',
 			'Noticias'=>'noticia',
 			'Instalaciones'=>'instalacion',
-			'Menu'=>'menu'
+			'Usuarios'=>'usuario',
+			'Login'=>'login',
+			'Logout'=>'logout'
 		));
 	}
 	function dispatch(){
@@ -37,9 +43,29 @@ class Controller extends BasicController{
 		case 'instalacion':
 			$object = new Instalacion; 
 			break;
-		default:
-			$object = new Menu; 
+		case 'usuario':
+			$object = new Usuario; 
 			break;
+		case 'login':
+			$object = new Logger; 
+			if($object->login($this)){
+				$object = new Alumno; 
+			}
+			break;
+		case 'logout':
+			$object = new Logger; 
+			$object->logout();
+			break;
+		case 'inicio':
+		default:
+			$object = new Inicio; 
+			break;
+		}
+		if(!isset($_SESSION['nivel'])){
+			$_SESSION['nivel']=0;
+		}
+		if($object->getLevel() > $_SESSION['nivel']){
+			$object = new Rechazo; 
 		}
 		$object->dispatch($this);
 	}

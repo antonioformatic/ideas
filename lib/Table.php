@@ -13,6 +13,7 @@ class Table{
 	var $masterId = -1;
 	var $action = '';
 	var $fields = array();
+	var $level= 0;
 
 	function __construct() {
 		global $dbtype;
@@ -26,7 +27,12 @@ class Table{
 			print "Error de conexion!: " . $e->getMessage();
 			die();
 		}	
-		session_start();
+		if(!isset($_SESSION)){
+			session_start();
+		}
+	}
+	function getLevel(){
+		return $this->level;
 	}
 	function __destruct() {
 		$this->pdo = null;
@@ -162,14 +168,18 @@ class Table{
 		}
 
 		$this->tpl->assign('error', $this->error);
-		$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
+		if(isset($this->templateData[$this->formTemplate])){
+			$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
+		}
 		$this->tpl->display($this->formTemplate);
 	}
 	function displayList($records = array()) {
 		$this->tpl->assign('records', $records);
 		$this->tpl->assign('masterId', $this->masterId);
 		$this->tpl->assign('id',$this->id);
-		$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
+		if(isset($this->templateData[$this->listTemplate])){
+			$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
+		}
 		$this->tpl->display($this->listTemplate);        
 	}
 	function delete(){
