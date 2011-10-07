@@ -1,24 +1,8 @@
 <?php
 require_once('Table.php');
-class Recibo extends Table{
+class DetailTable extends Table{
 	var $masterTable='';
 	var $externalIndex = '';
-	function __construct() {
-		$this->dbtype = 'mysql';
-		$this->dbname = 'academia';
-		$this->dbhost = 'localhost';
-		$this->dbuser = 'root';
-		$this->dbpass = 'secreto';
-		$this->table = 'recibo';
-		$this->masterTable= 'alumno';
-		$this->externalIndex= 'alumno_id';
-		$this->formTemplate = 'reciboForm.tpl';
-		$this->listTemplate = 'reciboList.tpl';
-		$this->fields= array(
-				'Fecha', 'Asignaturas', 'Importe', 'Pagado'
-		);
-		parent::__construct();
-	}
 
 	//sobreescrita!
 	function getNumRecords(){
@@ -27,18 +11,6 @@ class Recibo extends Table{
 
 
 	function isValidForm($formvars) {
-		$this->error = null;
-
-		if(strlen($formvars['Asignaturas']) == 0) {
-			$this->error = 'Asignaturas_empty';
-			return false; 
-		}
-
-		if(strlen($formvars['Importe']) == 0) {
-			$this->error = 'Importe_empty';
-			return false; 
-		}
-
 		return true;
 	}
 	//sobreescrita
@@ -57,6 +29,7 @@ class Recibo extends Table{
 			$q.= '?,';
 			$q=substr($q,0, -1);//quitamos la última coma
 			$q .= ')';
+			echo "el query es: " . $q;
 			$rh = $this->pdo->prepare($q);
 			$v = array();
 			foreach($this->fields as $field){
@@ -85,6 +58,7 @@ class Recibo extends Table{
 			foreach ($this->pdo->query($sql) as $row) {
 				$rows[] = $row;
 			}
+
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();
 			return false;

@@ -1,34 +1,11 @@
 <?php
-if (!function_exists("GetSQLValueString")) {
-	function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") {
-		if (PHP_VERSION < 6) {
-			$theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-		}
-
-		$theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-		switch ($theType) {
-			case "text" :
-				$theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-				break;
-			case "long" :
-			case "int" :
-				$theValue = ($theValue != "") ? intval($theValue) : "NULL";
-				break;
-			case "double" :
-				$theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-				break;
-			case "date" :
-				$theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-				break;
-			case "defined" :
-				$theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-				break;
-		}
-		return $theValue;
-	}
-
-}
+/*
+Busca en una tabla un valor dado y devuelve un array 
+en formato json con los registros en los que el campo
+a buscar contiene el valor dado. Para cada registro 
+encontrado, devuelve el campo a buscar como "label" y
+el campo a devolver como "ret".
+*/
 function array_to_json($array) {
 
 	if (!is_array($array)) {
@@ -87,4 +64,37 @@ function array_to_json($array) {
 	return $result;
 }
 
+
+$hostname = "localhost";
+$username = "root";
+$password = "secreto";
+$connection = mysql_pconnect($hostname, $username, $password) or trigger_error(mysql_error(),E_USER_ERROR); 
+
+$database = $_GET['database'];
+$table = $_GET['table'];
+$fieldSearch = $_GET['fieldSearch'];
+$valueSearch = '%';
+$valueSearch.= $_GET['term'];
+$valueSearch.='%';
+$fieldRet = $_GET['fieldRet'];
+
+mysql_select_db($database, $connection);
+
+$query_conexion = sprintf("SELECT * FROM %s WHERE %s LIKE '%s'", $table, $fieldSearch, $valueSearch);
+$conexion = mysql_query($query_conexion, $connection) or die(mysql_error());
+$row = mysql_fetch_assoc($conexion);
+
+$result = array();
+
+do {
+	array_push(
+		$result, 
+		array(
+			"ret"    => $row[$fieldRet], 
+			"label" => $row[$fieldSearch]
+		)
+	);
+} while ($row= mysql_fetch_assoc($conexion));
+echo array_to_json($result);
+mysql_free_result($conexion);
 ?>

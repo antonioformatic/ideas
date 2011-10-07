@@ -6,8 +6,8 @@
     {if $error ne ""}
       <tr>
       <td bgcolor="yellow" colspan="2">
-      {if $error eq "Nombre_empty"}
-	  	Se necesita un nombre
+      {if $error eq "Fecha_vacia"}
+	   Oye colega, falta la fecha	
       {elseif $error eq "DNI_empty"}
 	  	El DNI no puede estar vacío 
       {/if}
@@ -16,19 +16,18 @@
     {/if}
   </table>
 
-  Buscar esto:
-				<input 
-					class=      "lookup" 
-					database=   "academia" 
-					table=      "alumno" 
-					fieldSearch="Nombre"
-					fieldRet   ="id"
-				/>
-  Nombre: 
+ Nombre: 
   <input 
 	  type="text" 
 	  name="Nombre" 
 	  value="{$formVars.Nombre|escape}" 
+  >
+  <br />
+ Distancia: 
+  <input 
+	  type="text" 
+	  name="Distancia" 
+	  value="{$formVars.Distancia|escape}" 
   >
   <br />
   DNI

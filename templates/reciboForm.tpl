@@ -20,28 +20,28 @@
   <input 
 	  type="text" 
 	  name="Fecha" 
-	  value="{$post.Fecha|escape}" 
+	  value="{$formVars.Fecha|escape}" 
   >
   <br />
   Asignaturas
   <input 
 	  type="text" 
 	  name="Asignaturas" 
-	  value="{$post.Asignaturas|escape}" 
+	  value="{$formVars.Asignaturas|escape}" 
   >
   <br />
   Importe
   <input 
 	  type="text" 
 	  name="Importe" 
-	  value="{$post.Importe|escape}" 
+	  value="{$formVars.Importe|escape}" 
   >
   <br />
   Pagado
   <input 
 	  type="text" 
 	  name="Pagado" 
-	  value="{$post.Pagado|escape}" 
+	  value="{$formVars.Pagado|escape}" 
   >
   <br />
   <input type="submit" value="Submit">
@@ -49,3 +49,4 @@
   <input type="hidden" name="masterId" value="{$masterId}" />
   <input type="hidden" name="id" value="{$id}" />
 </form>
+{include file="footer.tpl"}
