@@ -13,7 +13,7 @@
       </tr>
     {/if}
   </table>
-
+{html_select_date}
   Nombre: 
   <input 
 	  type="text" 

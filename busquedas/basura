@@ -1,0 +1,24 @@
+te: Fri, 07 Oct 2011 08:48:31 GMT
+Server: Apache/2.2.14 (Ubuntu)
+	X-Powered-By: PHP/5.3.2-1ubuntu4.9
+	Vary: Accept-Encoding
+	Content-Encoding: gzip
+	Content-Length: 58
+	Keep-Alive: timeout=15, max=100
+	Connection: Keep-Alive
+	Content-Type: text/html
+
+	:
+GET /templates/busquedas/search.php?database=academia&table=alumnos&fieldSearch=Nombre&fieldRet=id&term=asd HTTP/1.1
+Host: 192.168.0.14
+Connection: keep-alive
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.202 Safari/535.1
+Accept: application/json, text/javascript, */*; q=0.01
+											  Referer: http://192.168.0.14/templates/busquedas/
+											  Accept-Encoding: gzip,deflate,sdch
+											  Accept-Language: es-ES,es;q=0.8
+											  Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+											  Cookie: PHPSESSID=onfl0bscq4na3mpnbdgl8kpvm6
+
+

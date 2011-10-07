@@ -14,23 +14,46 @@
 	<body>
 		<script>
 			$(function() {
-				$("#actor").autocomplete({
-					source : "search.php?database=academia&table=alumno&fieldSearch=Nombre&fieldRet=id",
-					minLength : 0,
-					focus : function(event, ui) {
-						$("#actor").val(ui.item.ret);
-						return false;
-					},
-					select: function(event, ui){
-						$("#actor").val(ui.item.ret);
-						return false;
-					}
-				});
+					$(".lookup").each(function(){
+						var comp = $(this); 
+						var url = "search.php"
+							+ "?database="   + comp.attr('database')
+							+ "&table="      + comp.attr('table')
+							+ "&fieldSearch="+ comp.attr('fieldSearch')
+							+ "&fieldRet="   + comp.attr('fieldRet')
+							;
+						comp.autocomplete({
+							source : url, 
+							minLength : 0,
+							focus : function(event, ui) {
+								comp.val(ui.item.ret);
+								return false;
+							},
+							select: function(event, ui){
+								comp.val(ui.item.ret);
+								return false;
+							}
+						});
+					});
+
 			});
 
 		</script>
-			<div class="ui-widget">
-				Actor:<input id="actor" />
-			</div>
+				Actor:
+				<input 
+					class=      "lookup" 
+					database=   "academia" 
+					table=      "alumno" 
+					fieldSearch="Nombre"
+					fieldRet   ="id"
+				/>
+				Noticia:
+				<input 
+					class=      "lookup" 
+					database=   "academia" 
+					table=      "noticia" 
+					fieldSearch="titulo"
+					fieldRet   ="id"
+				/>
 	</body>
 </html>
