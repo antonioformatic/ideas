@@ -72,26 +72,34 @@ $connection = mysql_pconnect($hostname, $username, $password) or trigger_error(m
 
 $database = $_GET['database'];
 $table = $_GET['table'];
-$fieldSearch = $_GET['fieldSearch'];
+$fieldSearch = explode(",",$_GET['fieldSearch']);
 $valueSearch = '%';
 $valueSearch.= $_GET['term'];
 $valueSearch.='%';
 $fieldRet = $_GET['fieldRet'];
 
 mysql_select_db($database, $connection);
-
-$query_conexion = sprintf("SELECT * FROM %s WHERE %s LIKE '%s'", $table, $fieldSearch, $valueSearch);
+$query_conexion = "SELECT * FROM ". $table . "  WHERE "; 
+foreach($fieldSearch as $field){
+	$query_conexion .= $field . " LIKE '" . $valueSearch ."' OR ";
+}
+$query_conexion=substr($query_conexion,0, -3);//quitamos el último OR 
 $conexion = mysql_query($query_conexion, $connection) or die(mysql_error());
 $row = mysql_fetch_assoc($conexion);
 
 $result = array();
 
 do {
+	$label= '';
+	foreach($fieldSearch as $field){
+		$label.= $row[$field] . ", ";	
+	}
+	$label=substr($label,0, -2);//quitamos la última coma 
 	array_push(
 		$result, 
 		array(
-			"ret"    => $row[$fieldRet], 
-			"label" => $row[$fieldSearch]
+			"ret"   => $row[$fieldRet], 
+			"label" => $label
 		)
 	);
 } while ($row= mysql_fetch_assoc($conexion));
