@@ -75,7 +75,7 @@ class Table{
 			$this->displayList($this->getRecords());        
 			break;
 		case 'delete':
-			$this->delete($id);
+			$this->delete($this->id);
 			$this->displayList($this->getRecords());        
 			break;
 		case 'edit':
