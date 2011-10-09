@@ -29,7 +29,6 @@ class DetailTable extends Table{
 			$q.= '?,';
 			$q=substr($q,0, -1);//quitamos la última coma
 			$q .= ')';
-			echo "el query es: " . $q;
 			$rh = $this->pdo->prepare($q);
 			$v = array();
 			foreach($this->fields as $field){
