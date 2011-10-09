@@ -6,10 +6,11 @@ class Alumno extends MasterTable{
 		$this->formTemplate = 'alumnoForm.tpl';
 		$this->listTemplate = 'alumnoList.tpl';
 		$this->fields= array(
-				'Nombre', 
-				'DNI', 
-				'Telefono', 
-				'Email'
+				'nombre', 
+				'apellidos', 
+				'dni', 
+				'telefono', 
+				'email'
 		);
 		$this->level = 10;
 		parent::__construct();
@@ -19,7 +20,7 @@ class Alumno extends MasterTable{
 			$this->action= $_REQUEST['action']; 
 		}
 		switch($this->action) {
-		case 'imprimir':
+		case 'movidas':
 			$controller->assign('nombre',"Michel Jackson"); 
 			$controller->display('imprimir.tpl');        
 			break;
@@ -32,13 +33,21 @@ class Alumno extends MasterTable{
 	function isValidForm($formvars) {
 		$this->error = null;
 
-		if(strlen($formvars['Nombre']) == 0) {
-			$this->error = 'Nombre_empty';
+		if(strlen($formvars['nombre']) == 0) {
+			$this->error = 'nombre_empty';
+			return false; 
+		}
+		if(strlen($formvars['apellidos']) == 0) {
+			$this->error = 'apellidos_empty';
 			return false; 
 		}
 
-		if(strlen($formvars['DNI']) == 0) {
-			$this->error = 'DNI_empty';
+		if(strlen($formvars['dni']) == 0) {
+			$this->error = 'dni_empty';
+			return false; 
+		}
+		if(strlen($formvars['telefono']) == 0) {
+			$this->error = 'telefono_empty';
 			return false; 
 		}
 		return true;

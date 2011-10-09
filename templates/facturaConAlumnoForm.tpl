@@ -20,29 +20,40 @@
   Fecha: 
   <input 
 	  type="text" 
-	  name="Fecha" 
-	  value="{$formVars.Fecha|escape}" 
+	  name="fecha" 
+	  value="{$formVars.fecha|escape}" 
   >
   <br />
-  Asignaturas
+  Conceptos:
   <input 
 	  type="text" 
-	  name="Asignaturas" 
-	  value="{$formVars.Asignaturas|escape}" 
+	  name="concepto" 
+	  value="{$formVars.concepto|escape}" 
   >
   <br />
   Importe
   <input 
 	  type="text" 
-	  name="Importe" 
-	  value="{$formVars.Importe|escape}" 
+	  name="importe" 
+	  value="{$formVars.importe|escape}" 
   >
   <br />
-  Pagado
+  Fecha de pago: 
   <input 
 	  type="text" 
-	  name="Pagado" 
-	  value="{$formVars.Pagado|escape}" 
+	  name="fecha_pago" 
+	  value="{$formVars.fecha_pago|escape}" 
+  >
+  Alumno: 
+  <input 
+	  type="text" 
+	  name="alumno_id" 
+	  value="{$formVars.alumno_id|escape}" 
+	  class="lookup"
+	  database="formatic"
+	  table="alumno"
+	  fieldSearch="nombre,apellidos"
+	  fieldRet="id"
   >
   <br />
   <input type="submit" value="Submit">

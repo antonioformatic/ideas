@@ -4,29 +4,32 @@
 {include file="menu.tpl"}
 <td><a href="{$SCRIPT_NAME}?action=close&view=alumno"  >
 	<button>&uarr;</button>
+	</a>
 </td>
-<table border="0" width="300">
-	<th bgcolor="#d1d1d1">id     </th>
+<table border="0" >
+	<th bgcolor="#d1d1d1">id</th>
 	<th bgcolor="#d1d1d1">Fecha  </th>
-	<th bgcolor="#d1d1d1">Asignaturas</th>
+	<th bgcolor="#d1d1d1">Conceptos</th>
 	<th bgcolor="#d1d1d1">Importe</th>
-	<th bgcolor="#d1d1d1">Pagado</th>
+	<th bgcolor="#d1d1d1">Fecha de pago</th>
+	<th bgcolor="#d1d1d1">&nbsp;</th>
+	<th bgcolor="#d1d1d1">&nbsp;</th>
 	{foreach from=$records item="record"}
     <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
 		<td>
 			{$record.id|escape}
 		</td>        
 		<td>
-			{$record.Fecha|escape}
+			{$record.fecha|escape}
 		</td>        
 		<td>
-			{$record.Asignaturas|escape}
+			{$record.concepto|escape}
 		</td>        
 		<td>
-			{$record.Importe|escape}
+			{$record.importe|escape}
 		</td>        
 		<td>
-			{$record.Pagado|escape}
+			{$record.fecha_pago|escape}
 		</td>        
         <td><a href="{$SCRIPT_NAME}?action=edit&id={$record.id}&masterId={$masterId}"  >
 			<button>.</button></a>
@@ -64,7 +67,7 @@
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=add&view=recibo&masterId={$masterId}">
+			<a href="{$SCRIPT_NAME}?action=add&view=factura&masterId={$masterId}">
 				<button>+</button></a>
 			</a>
 		</td>

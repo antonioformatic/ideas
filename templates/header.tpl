@@ -4,7 +4,7 @@
 {include file="html_header.tpl"}
 <body {if $nivel_usuario eq "10"}style="background-color:yellow;"{/if}>
 <div style="text-align:center;">
-<h1>PROGRAMA DE CONTROL GENERAL DE LA SITUACION </h1>
+<h1>Facturación</h1>
 </div>
 {if $nivel_usuario gt 0}Usuario: {$nombre_usuario} (Nivel: {$nivel_usuario}){/if}
 <hr>

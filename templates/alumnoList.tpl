@@ -6,16 +6,19 @@
 	<button>&uarr;</button>
 </a>
 </td>
-<table border="0" width="300">
+<table border="0" >
 	<th bgcolor="#d1d1d1">&nbsp;</th>
 	<th bgcolor="#d1d1d1">id     </th>
 	<th bgcolor="#d1d1d1">Nombre </th>
+	<th bgcolor="#d1d1d1">Apellidos</th>
 	<th bgcolor="#d1d1d1">DNI    </th>
 	<th bgcolor="#d1d1d1">Telefono</th>
 	<th bgcolor="#d1d1d1">Correo eletrónico</th>
+	<th bgcolor="#d1d1d1">&nbsp;</th>
+	<th bgcolor="#d1d1d1">&nbsp;</th>
 	{foreach from=$records item="record"}
     <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
-        <td><a href="{$SCRIPT_NAME}?action=open&view=recibo&id={$record.id}&masterId={$record.id}"  >
+        <td><a href="{$SCRIPT_NAME}?action=open&view=factura&id={$record.id}&masterId={$record.id}"  >
 			<button>&darr;</button>
 			</a>
 		</td>
@@ -23,16 +26,19 @@
 			{$record.id|escape}
 		</td>        
 		<td>
-			{$record.Nombre|escape}
+			{$record.nombre|escape}
 		</td>        
 		<td>
-			{$record.DNI|escape}
+			{$record.apellidos|escape}
 		</td>        
 		<td>
-			{$record.Telefono|escape}
+			{$record.dni|escape}
 		</td>        
 		<td>
-			{$record.Email|escape}
+			{$record.telefono|escape}
+		</td>        
+		<td>
+			{$record.email|escape}
 		</td>        
         <td><a href="{$SCRIPT_NAME}?action=edit&id={$record.id}"  >
 			<button>.</button></a>

@@ -1,9 +1,14 @@
 <ul id="navigation"> 
+<h1>
+<table border="0" width="100%">
+<tr>
 {foreach from=$opciones key=title item=page} 
-   <li> 
+   <td> 
 		<a href="{$SCRIPT_NAME}?view={$page}"> 
-			{$title}<br /> 
+			{$title}
 		</a> 
-	</li> 
+	</td> 
 {/foreach} 
-</ul>
+</tr>
+</table>
+</h1>

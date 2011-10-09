@@ -6,55 +6,53 @@
     {if $error ne ""}
       <tr>
       <td bgcolor="yellow" colspan="2">
-      {if $error eq "Nombre_empty"}
+      {if $error eq "nombre_empty"}
 	  	Se necesita un nombre
-      {elseif $error eq "DNI_empty"}
+      {elseif $error eq "apellidos_empty"}
+	  	Los apellidos no pueden estar vacíos 
+      {elseif $error eq "dni_empty"}
 	  	El DNI no puede estar vacío 
+      {elseif $error eq "telefono_empty"}
+	  	El teléfono no puede estar vacío 
       {/if}
       </td>
       </tr>
     {/if}
   </table>
 
-<td><a href="{$SCRIPT_NAME}?action=imprimir"  >
-	<button>Imprimir</button>
-</a>
-<p>
-  Buscar alumno por su nombre:
-	<input 
-		class=      "lookup" 
-		database=   "academia" 
-		table=      "alumno" 
-		fieldSearch="Nombre"
-		fieldRet   ="id"
-	/>
-<p>
   Nombre: 
   <input 
 	  type="text" 
-	  name="Nombre" 
-	  value="{$formVars.Nombre|escape}" 
+	  name="nombre" 
+	  value="{$formVars.nombre|escape}" 
+  >
+  <br />
+  Apellidos: 
+  <input 
+	  type="text" 
+	  name="apellidos" 
+	  value="{$formVars.apellidos|escape}" 
   >
   <br />
   DNI
   <input 
 	  type="text" 
-	  name="DNI" 
-	  value="{$formVars.DNI|escape}" 
+	  name="dni" 
+	  value="{$formVars.dni|escape}" 
   >
   <br />
   Teléfono
   <input 
 	  type="text" 
-	  name="Telefono" 
-	  value="{$formVars.Telefono|escape}" 
+	  name="telefono" 
+	  value="{$formVars.telefono|escape}" 
   >
   <br />
   Correo electrónico
   <input 
 	  type="text" 
-	  name="Email" 
-	  value="{$formVars.Email|escape}" 
+	  name="email" 
+	  value="{$formVars.email|escape}" 
   >
   <br />
   <input type="submit" value="Submit">

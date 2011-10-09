@@ -2,7 +2,7 @@
 //Fichero de configuracion
 
 	$dbtype = 'mysql';
-	$dbname = 'academia';
+	$dbname = 'formatic';
 	$dbhost = 'localhost';
 	$dbuser = 'root';
 	$dbpass = 'secreto';
