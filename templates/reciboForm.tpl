@@ -46,7 +46,6 @@
   >
   <br />
   <input type="submit" value="Submit">
-  <input type="hidden" name="db_action" value="{$db_action}" />
   <input type="hidden" name="masterId" value="{$masterId}" />
   <input type="hidden" name="id" value="{$id}" />
 </form>

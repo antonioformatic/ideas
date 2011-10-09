@@ -28,7 +28,6 @@
   <textarea name="texto" rows="4" cols="40">{$formVars.texto|escape}</textarea>
   <br />
   <input type="submit" value="Submit">
-  <input type="hidden" name="db_action" value="{$db_action}" />
   <input type="hidden" name="id" value="{$id}" />
 </form>
 {include file="footer.tpl"}

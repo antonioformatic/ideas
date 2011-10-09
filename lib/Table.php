@@ -79,14 +79,16 @@ class Table{
 			$this->displayList($this->getRecords());        
 			break;
 		case 'edit':
+			$_SESSION['db_action'] = 'update'; 
 			$this->displayForm($this->getRecord());
 			break;
 		case 'add':
+			$_SESSION['db_action'] = 'insert'; 
 			$this->displayForm();
 			break;
 		case 'submit':
 			if($this->isValidForm($_POST)) {
-				if($_POST['db_action']== 'update'){
+				if($_SESSION['db_action']== 'update'){
 					$this->updateEntry($_POST);
 				}else{
 					$this->addEntry($_POST);
@@ -185,7 +187,13 @@ class Table{
 	function delete(){
 		try {
 			$rh = $this->pdo->prepare("delete from ". $this->table . " where id = ?");
-			$rh->execute(array($this->id));
+			$count = $rh->execute(array($this->id));
+			if ($count == 0){
+				//////////////////////////////////////////////
+				//TODO: Mejorar esta gestión de errores!!!!!!!
+				//////////////////////////////////////////////
+				print "IMPOSIBLE BORRAR<p>"; 
+			}
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();
 			return false;
@@ -240,6 +248,8 @@ class Table{
 					$v[] = $formvars[$field];
 				}
 			}
+			echo "Sentencia:". $q;
+			var_dump($v);
 			$rh->execute($v);
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();
