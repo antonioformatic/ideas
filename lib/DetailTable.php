@@ -46,7 +46,7 @@ class DetailTable extends Table{
 	function getRecords(){
 		$this->fromRec =  $_SESSION['fromRec'];
 		try {
-			$sql = 'select * from ' . $this->table 
+			$sql = 'select * from ' . $this->listTable 
 				.' where '. $this->externalIndex . ' = ' 
 				.$this->masterId 
 				. ' LIMIT ' 

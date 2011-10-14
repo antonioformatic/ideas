@@ -18,58 +18,28 @@
       </tr>
     {/if}
   </table>
-<table>
-<tr>
-<td>
-Alumno
-<input
-	size="5"
-	id = "idDelAlumno"
-	value = {$masterId}
-	readonly
-	disabled
->
-</td>
-<td>
-<div 
-	class="externalField"
-	database="formatic"
-	table="alumno"
-	id="idDelAlumno"
-	fieldRet="dni"
->vacio de momento</div>
-</td>
-</tr>
-</table>
 
 <br />
-  Fecha: 
-  <input 
-	  type="text" 
-	  name="fecha" 
-	  value="{$formVars.fecha|escape}" 
-  >
-  <br />
-  Conceptos:
-  <input 
-	  type="text" 
-	  name="concepto" 
-	  value="{$formVars.concepto|escape}" 
-  >
-  <br />
-  Importe
-  <input 
-	  type="text" 
-	  name="importe" 
-	  value="{$formVars.importe|escape}" 
-  >
-  <br />
-  Fecha de pago: 
-  <input 
-	  type="text" 
-	  name="fecha_pago" 
-	  value="{$formVars.fecha_pago|escape}" 
-  >
+Equipo:
+<input
+	class = "lookup"
+	type = "text"
+	name = "equipo_id"
+	value="{$formVars.equipo_id|escape}" 
+	id = "equipo_id"
+	database="carrilanas"
+	table="equipo"
+	fieldSearch="nombre"
+	fieldRet="id"
+	>
+Nombre del equipo:
+<div 
+	class="externalField"
+	database="carrilanas"
+	table="equipo"
+	value_id="equipo_id"
+	fieldRet="nombre"
+></div>
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="masterId" value="{$masterId}" />

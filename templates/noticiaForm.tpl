@@ -18,57 +18,15 @@
       </tr>
     {/if}
   </table>
-<table>
-<tr>
-<td>
-Alumno
-<input
-	size="5"
-	id = "idDelAlumno"
-	value = {$masterId}
-	readonly
-	disabled
->
-</td>
-<td>
-<div 
-	class="externalField"
-	database="formatic"
-	table="alumno"
-	id="idDelAlumno"
-	fieldRet="dni"
->vacio de momento</div>
-</td>
-</tr>
-</table>
-
 <br />
-  Fecha: 
+  Texto: 
+<textarea name="texto">{$formVars.texto|escape}</textarea>
+<br />
+Fecha: 
   <input 
 	  type="text" 
 	  name="fecha" 
 	  value="{$formVars.fecha|escape}" 
-  >
-  <br />
-  Conceptos:
-  <input 
-	  type="text" 
-	  name="concepto" 
-	  value="{$formVars.concepto|escape}" 
-  >
-  <br />
-  Importe
-  <input 
-	  type="text" 
-	  name="importe" 
-	  value="{$formVars.importe|escape}" 
-  >
-  <br />
-  Fecha de pago: 
-  <input 
-	  type="text" 
-	  name="fecha_pago" 
-	  value="{$formVars.fecha_pago|escape}" 
   >
   <br />
   <input type="submit" value="Submit">

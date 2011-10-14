@@ -8,29 +8,5 @@
 			background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
 		}
 	</style>
-	<script>
-		$(function() {
-			$(".lookup").each(function(){
-				var comp = $(this); 
-				var url = "lib/Search.php"
-					+ "?database="   + comp.attr('database')
-					+ "&table="      + comp.attr('table')
-					+ "&fieldSearch="+ comp.attr('fieldSearch')
-					+ "&fieldRet="   + comp.attr('fieldRet')
-					;
-				comp.autocomplete({
-					source : url, 
-					minLength : 0,
-					focus : function(event, ui) {
-						comp.val(ui.item.ret);
-						return false;
-					},
-					select: function(event, ui){
-						comp.val(ui.item.ret);
-						return false;
-					}
-				});
-			});
-		});
-	</script>
+	<script type="text/javascript" src="js/funciones.js"></script>
 </head>

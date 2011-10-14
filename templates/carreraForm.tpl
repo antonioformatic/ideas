@@ -19,57 +19,32 @@
       </tr>
     {/if}
   </table>
-Alumno id:
-<input
-	class = "lookup"
-	type = "text"
-	id = "idDelAlumno"
-	database="academia"
-	table="alumno"
-	fieldSearch="Nombre,DNI,Telefono"
-	fieldRet="id"
-	>
-Alumno nombre:
-<div 
-	class="externalField"
-	database="academia"
-	table="alumno"
-	id="idDelAlumno"
-	fieldRet="Nombre"
-></div>
-  Nombre: 
+  Fecha: 
   <input 
 	  type="text" 
-	  name="nombre" 
-	  value="{$formVars.nombre|escape}" 
+	  name="fecha" 
+	  value="{$formVars.fecha|escape}" 
   >
   <br />
-  Apellidos: 
+  Lugar: 
   <input 
 	  type="text" 
-	  name="apellidos" 
-	  value="{$formVars.apellidos|escape}" 
+	  name="lugar" 
+	  value="{$formVars.lugar|escape}" 
   >
   <br />
-  DNI
+ Distancia: 
   <input 
 	  type="text" 
-	  name="dni" 
-	  value="{$formVars.dni|escape}" 
+	  name="distancia" 
+	  value="{$formVars.distancia|escape}" 
   >
   <br />
-  Teléfono
+  Mapa
   <input 
 	  type="text" 
-	  name="telefono" 
-	  value="{$formVars.telefono|escape}" 
-  >
-  <br />
-  Correo electrónico
-  <input 
-	  type="text" 
-	  name="email" 
-	  value="{$formVars.email|escape}" 
+	  name="mapa" 
+	  value="{$formVars.mapa|escape}" 
   >
   <br />
   <input type="submit" value="Submit">

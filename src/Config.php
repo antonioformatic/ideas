@@ -2,7 +2,7 @@
 //Fichero de configuracion
 
 	$dbtype = 'mysql';
-	$dbname = 'formatic';
+	$dbname = 'carrilanas';
 	$dbhost = 'localhost';
 	$dbuser = 'root';
 	$dbpass = 'secreto';

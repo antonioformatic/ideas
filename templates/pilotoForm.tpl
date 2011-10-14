@@ -19,58 +19,69 @@
       </tr>
     {/if}
   </table>
-Alumno id:
-<input
-	class = "lookup"
-	type = "text"
-	id = "idDelAlumno"
-	database="academia"
-	table="alumno"
-	fieldSearch="Nombre,DNI,Telefono"
-	fieldRet="id"
-	>
-Alumno nombre:
-<div 
-	class="externalField"
-	database="academia"
-	table="alumno"
-	id="idDelAlumno"
-	fieldRet="Nombre"
-></div>
-  Nombre: 
+  Nombre:
   <input 
 	  type="text" 
-	  name="nombre" 
+	  name="nombre"              
 	  value="{$formVars.nombre|escape}" 
   >
   <br />
-  Apellidos: 
+  Dirección:
   <input 
 	  type="text" 
-	  name="apellidos" 
-	  value="{$formVars.apellidos|escape}" 
+	  name="direccion"           
+	  value="{$formVars.direccion|escape}" 
   >
   <br />
-  DNI
+  Teléfono:
   <input 
 	  type="text" 
-	  name="dni" 
-	  value="{$formVars.dni|escape}" 
-  >
-  <br />
-  Teléfono
-  <input 
-	  type="text" 
-	  name="telefono" 
+	  name="telefono"            
 	  value="{$formVars.telefono|escape}" 
   >
   <br />
-  Correo electrónico
+  Email:
   <input 
 	  type="text" 
-	  name="email" 
+	  name="email"               
 	  value="{$formVars.email|escape}" 
   >
+  <br />
+  Fecha de nacimiento:
+  <input 
+	  type="text" 
+	  name="fecha_de_nacimiento" 
+	  value="{$formVars.fecha_de_nacimiento|escape}" 
+  >
+  <br />
+  Foto:
+  <input 
+	  type="text" 
+	  name="foto"                
+	  value="{$formVars.foto|escape}" 
+  >
+  <br />
+  Equipo:
+<input
+	class = "lookup"
+	type = "text"
+	size="4"
+	name="equipo_id"           
+	id = "idDelEquipo"
+	value="{$formVars.equipo_id|escape}" 
+	database="carrilanas"
+	table="equipo"
+	fieldSearch="nombre"
+	fieldRet="id"
+	>
+<div
+	style="display:inline;"
+	class="externalField"
+	database="carrilanas"
+	table="equipo"
+	value_id="idDelEquipo" 
+	fieldRet="nombre"
+></div>
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="id" value="{$formVars.id}" />

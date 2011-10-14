@@ -9,6 +9,7 @@ class Table{
 	var $listTemplate = '';
 	var $templateData = array();
 	var $table = '';
+	var $listTable= '';
 	var $id = -1;
 	var $masterId = -1;
 	var $action = '';
@@ -27,6 +28,9 @@ class Table{
 			print "Error de conexion!: " . $e->getMessage();
 			die();
 		}	
+		if($this->listTable == ''){
+			$this->listTable = $this->table;
+		}
 		if(!isset($_SESSION)){
 			session_start();
 		}
@@ -248,8 +252,6 @@ class Table{
 					$v[] = $formvars[$field];
 				}
 			}
-			echo "Sentencia:". $q;
-			var_dump($v);
 			$rh->execute($v);
 		} catch (PDOException $e) {
 			print "Error!: " . $e->getMessage();
@@ -263,7 +265,7 @@ class Table{
 				$this->fromRec =  $_SESSION['fromRec'];
 			}
 			try {
-				$sql = 'select * from ' . $this->table .  ' LIMIT ' 
+				$sql = 'select * from ' . $this->listTable .  ' LIMIT ' 
 					. $this->fromRec 
 					. ','
 					.$this->recsByPage;
@@ -278,7 +280,7 @@ class Table{
 			return $rows;   
 		}else{
 			try {
-				$rh = $this->pdo->prepare("select * from " . $this->table . " where id = ?");
+				$rh = $this->pdo->prepare("select * from " . $this->listTable . " where id = ?");
 				$rh->execute(array($id));
 				$row = $rh->fetch(PDO::FETCH_BOTH);
 			} catch (PDOException $e) {

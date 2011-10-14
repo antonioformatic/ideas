@@ -1,19 +1,24 @@
 <?php
 require(LIB_DIR . 'BasicController.php');
-require(SRC_DIR . 'Alumno.php');
-require(SRC_DIR . 'Factura.php');
-require(SRC_DIR . 'FacturaConAlumno.php');
+require(SRC_DIR . 'Carrera.php');
+require(SRC_DIR . 'Noticia.php');
+require(SRC_DIR . 'Comentario.php');
+require(SRC_DIR . 'Participante.php');
+require(SRC_DIR . 'CarreraConParticipantes.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
 require(SRC_DIR . 'Rechazo.php');
+require(SRC_DIR . 'Piloto.php');
 class Controller extends BasicController{
 	function __construct() {
 		parent::__construct();
 		$this->assign('opciones', array(
 			'Inicio'=>'inicio',
-			'Alumnos'=>'alumno',
-			'Facturas'=>'facturaConAlumno',
+			'Carreras'=>'carrera',
+			'Participantes'=>'carreraConParticipantes',
+			'Pilotos'=>'piloto',
+			'Foro'=>'noticia',
 			'Usuarios'=>'usuario',
 			'Login'=>'login',
 			'Logout'=>'logout'
@@ -32,14 +37,26 @@ class Controller extends BasicController{
 		case 'alumno':
 			$object = new Alumno;
 			break;
-		case 'factura':
-			$object = new Factura; 
-			break;
-		case 'facturaConAlumno':
-			$object = new FacturaConAlumno; 
-			break;
 		case 'usuario':
 			$object = new Usuario; 
+			break;
+		case 'carrera':
+			$object = new Carrera; 
+			break;
+		case 'participante':
+			$object = new Participante; 
+			break;
+		case 'carreraConParticipantes':
+			$object = new CarreraConParticipantes; 
+			break;
+		case 'noticia':
+			$object = new Noticia; 
+			break;
+		case 'piloto':
+			$object = new Piloto; 
+			break;
+		case 'comentario':
+			$object = new Comentario; 
 			break;
 		case 'login':
 			$object = new Logger; 
