@@ -32,14 +32,14 @@ Equipo:
 	fieldSearch="nombre"
 	fieldRet="id"
 	>
-Nombre del equipo:
 <div 
+	style="display:online;"
 	class="externalField"
 	database="carrilanas"
 	table="equipo"
 	value_id="equipo_id"
 	fieldRet="nombre"
-></div>
+>xxx</div>
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="masterId" value="{$masterId}" />

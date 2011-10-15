@@ -34,6 +34,7 @@ class Table{
 		if(!isset($_SESSION)){
 			session_start();
 		}
+		$_SESSION['fromRec'] = 0;
 	}
 	function getLevel(){
 		return $this->level;

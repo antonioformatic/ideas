@@ -24,6 +24,7 @@
   <br />
   <input type="submit" value="Submit">
   <input type="hidden" name="masterId" value="{$masterId}" />
+  <input type="hidden" name="usuario_id" value="{$id_usuario}" />
   <input type="hidden" name="id" value="{$id}" />
 </form>
 {include file="footer.tpl"}

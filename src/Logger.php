@@ -21,18 +21,18 @@ class Logger extends Table{
 		if(isset($_POST['nombre']) && isset($_POST['password'])){
 			$user = $this->getUser($_POST['nombre'],$_POST['password']);
 			if(!empty($user)){
-				$_SESSION['id']    =$user['id'];
-				$_SESSION['nombre']=$user['nombre'];
-				$_SESSION['nivel'] =$user['nivel'];
+				$_SESSION['id_usuario']    =$user['id'];
+				$_SESSION['nombre_usuario']=$user['nombre'];
+				$_SESSION['nivel_usuario'] =$user['nivel'];
 				return true;	
 			}
 		}
 		return false;
 	}
 	function logout(){
-		$_SESSION['id'] = 0;
-		$_SESSION['nombre'] = '';
-		$_SESSION['nivel'] = 0;
+		$_SESSION['id_usuario'] = 0;
+		$_SESSION['nombre_usuario'] = '';
+		$_SESSION['nivel_usuario'] = 0;
 	}
 
 	function isValidForm($formvars) {

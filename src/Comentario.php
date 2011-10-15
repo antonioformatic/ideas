@@ -8,7 +8,8 @@ class Comentario extends DetailTable{
 		$this->formTemplate = 'comentarioForm.tpl';
 		$this->listTemplate = 'comentarioList.tpl';
 		$this->fields= array(
-				'texto'
+				'texto',
+				'usuario_id'
 		);
 		parent::__construct();
 	}
