@@ -203,7 +203,7 @@ class Table{
 		if(isset($this->templateData[$this->listTemplate])){
 			//$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
 		}
-		$this->tpl->assign('data', json_decode(utf8_encode(($this->getTable()))));
+		$this->tpl->assign('data', json_decode(($this->getTable())));
 		$this->tpl->display($this->listTemplate);        
 	}
 	function displayListOld($records = array()) {
