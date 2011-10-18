@@ -18,6 +18,23 @@ class Piloto extends MasterTable{
 		$this->level = 10;
 		parent::__construct();
 	}
+	function getTable(){
+		return '{
+			"add"      : "true",
+			"edit"     : "true",
+			"delete"   : "true",
+			"colModel" : [
+				{"display": "Id",       "name" : "id",       "width" : 40  },
+				{"display": "Nombre",   "name" : "nombre",   "width" : 150 },
+				{"display": "Dirección","name" : "direccion","width" : 150 },
+				{"display": "Teléfono", "name" : "telefono", "width" : 250 },
+				{"display": "Email",    "name" : "email",    "width" : 250 },
+				{"display": "Fecha nac","name" : "fecha_de_nacimiento", "width" : 250 },
+				{"display": "Foto",     "name" : "foto",     "width" : 250 },
+				{"display": "Equipo",   "name" : "equipo_nombre","width" : 250 }
+			]
+		}';
+	}
 
 	function isValidForm($formvars) {
 		$this->error = null;

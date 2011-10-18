@@ -15,6 +15,7 @@ class Table{
 	var $action = '';
 	var $fields = array();
 	var $level= 0;
+	var $orderField= 'id';
 
 	function __construct() {
 		global $dbtype;
@@ -35,6 +36,16 @@ class Table{
 			session_start();
 		}
 		$_SESSION['fromRec'] = 0;
+	}
+	function getTable(){
+		return '{
+			"add"      : "true",
+			"edit"     : "true",
+			"delete"   : "true",
+			"colModel" : [
+				{"display": "Id",       "name" : "id",       "width" : 40  }
+			]
+		}';
 	}
 	function getLevel(){
 		return $this->level;
@@ -63,6 +74,10 @@ class Table{
 			$this->action= $_REQUEST['action']; 
 		}
 		switch($this->action) {
+		case 'orderBy':
+			$this->orderField=$_REQUEST['orderField']; 
+			$this->displayList($this->getRecords());        
+			break;
 		case 'goFirst':
 			$this->goFirst();
 			$this->displayList($this->getRecords());        
@@ -184,6 +199,18 @@ class Table{
 		$this->tpl->assign('records', $records);
 		$this->tpl->assign('masterId', $this->masterId);
 		$this->tpl->assign('id',$this->id);
+		$this->tpl->assign('orderField',$this->orderField);
+		if(isset($this->templateData[$this->listTemplate])){
+			//$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
+		}
+		$this->tpl->assign('data', json_decode(utf8_encode(($this->getTable()))));
+		$this->tpl->display($this->listTemplate);        
+	}
+	function displayListOld($records = array()) {
+		$this->tpl->assign('records', $records);
+		$this->tpl->assign('masterId', $this->masterId);
+		$this->tpl->assign('id',$this->id);
+		$this->tpl->assign('orderField',$this->orderField);
 		if(isset($this->templateData[$this->listTemplate])){
 			$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
 		}
@@ -266,14 +293,15 @@ class Table{
 				$this->fromRec =  $_SESSION['fromRec'];
 			}
 			try {
-				$sql = 'select * from ' . $this->listTable .  ' LIMIT ' 
-					. $this->fromRec 
-					. ','
-					.$this->recsByPage;
-				$rows = array();
-				foreach ($this->pdo->query($sql) as $row) {
-					$rows[] = $row;
-				}
+				$sql = $this->pdo->prepare(
+						'SELECT * FROM ' 
+						. $this->listTable 
+					.  ' ORDER BY ' . $this->orderField 
+					.  ' LIMIT ' . $this->fromRec . ',' .$this->recsByPage
+				);
+				$sql->execute();
+				$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 			} catch (PDOException $e) {
 				print "Error!: " . $e->getMessage();
 				return false;

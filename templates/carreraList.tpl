@@ -2,19 +2,27 @@
 
 {include file="header.tpl"}
 {include file="menu.tpl"}
+<form action=  "{$SCRIPT_NAME}?action=orderBy" method="post">
+<select name="orderField">
+	{html_options values=array_keys($records[0]) output=array_keys($records[0]) selected ='id'}
+</select>
+<input type="submit" value="Ordenar">
+</form>
+
 <td><a href="{$SCRIPT_NAME}?action=close&view=menu"  >
 	<button>&uarr;</button>
 </a>
 </td>
 <table border="0" >
-	<th bgcolor="#d1d1d1">&nbsp;</th>
-	<th bgcolor="#d1d1d1">id     </th>
-	<th bgcolor="#d1d1d1">Fecha</th>
-	<th bgcolor="#d1d1d1">Lugar</th>
-	<th bgcolor="#d1d1d1">Distancia</th>
-	<th bgcolor="#d1d1d1">Mapa</th>
-	<th bgcolor="#d1d1d1">&nbsp;</th>
-	<th bgcolor="#d1d1d1">&nbsp;</th>
+	<th bgcolor="#d1d1d1">&nbsp;    </th>
+	<th bgcolor="#d1d1d1">id        </th>
+	<th bgcolor="#d1d1d1"><a href="{$SCRIPT_NAME}?action=orderBy&orderField=fecha">Fecha</a>     </th>
+	<th bgcolor="#d1d1d1">Lugar     </th>
+	<th bgcolor="#d1d1d1">Distancia </th>
+	<th bgcolor="#d1d1d1">Mapa      </th>
+	<th bgcolor="#d1d1d1">&nbsp;    </th>
+	<th bgcolor="#d1d1d1">&nbsp;    </th>
+
 	{foreach from=$records item="record"}
     <tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
         <td><a href="{$SCRIPT_NAME}?action=open&view=participante&id={$record.id}&masterId={$record.id}"  >

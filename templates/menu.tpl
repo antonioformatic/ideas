@@ -1,5 +1,5 @@
 <ul id="navigation"> 
-<h1>
+<h3>
 <table border="0" width="100%">
 <tr>
 {foreach from=$opciones key=title item=page} 
@@ -11,4 +11,4 @@
 {/foreach} 
 </tr>
 </table>
-</h1>
+</h3>

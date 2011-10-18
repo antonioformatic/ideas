@@ -14,14 +14,16 @@ class Controller extends BasicController{
 	function __construct() {
 		parent::__construct();
 		$this->assign('opciones', array(
-			'Inicio'=>'inicio',
-			'Carreras'=>'carrera',
-			'Participantes'=>'carreraConParticipantes',
-			'Pilotos'=>'piloto',
-			'Foro'=>'noticia',
-			'Usuarios'=>'usuario',
-			'Login'=>'login',
-			'Logout'=>'logout'
+			'Inicio'          => 'inicio',
+			'Carreras'        => 'carrera',
+			'Participantes'   => 'carreraConParticipantes',
+			'Pilotos'         => 'piloto',
+			'Inscripciones'   => 'carreraConInscripciones',
+			'Clasificaciones' => 'carreraConCalificaciones',
+			'Foro'            => 'noticia',
+			'Usuarios'        => 'usuario',
+			'Login'           => 'login',
+			'Logout'          => 'logout'
 		));
 	}
 	function dispatch(){
@@ -48,6 +50,12 @@ class Controller extends BasicController{
 			break;
 		case 'carreraConParticipantes':
 			$object = new CarreraConParticipantes; 
+			break;
+		case 'carreraConInscripciones':
+			$object = new CarreraConInscripciones; 
+			break;
+		case 'carreraConCalificaciones':
+			$object = new CarreraConCalificaciones; 
 			break;
 		case 'noticia':
 			$object = new Noticia; 
