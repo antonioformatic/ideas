@@ -1,0 +1,14 @@
+	Inicio          Inicio de la web. Página de bienvenida. Info general o noticias varias.
+	Usuarios        Lista de usuarios, editable por administrador
+	Login           Login con clave y nombre
+	Logout          Inicio de la web
+	Registro		Datos para darse de alta
+	Foro            Noticias con comentarios
+	Inscripciones   Carreras con equipos inscritos
+	Clasificaciones Carreras con llegadas a meta
+	Pilotos         Pilotos con su equipo
+	Equipos			Equipos con sus pilotos
+
+Necesitamos poder buscar datos en las tablas. Cómo?
+En primer lugar, las cabeceras de las tablas podrían servir para ordenar, como es normal.
+Vamos a intentar esto.

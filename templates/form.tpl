@@ -58,5 +58,6 @@
 		<br /> 
 	{/foreach}
 	<input type="submit" value="Enviar" />
+	<input type="reset" value="Reset" />
 	<input type="hidden" name="id" value="{$formVars.id}" />
 </form>
