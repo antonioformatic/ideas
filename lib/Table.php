@@ -16,6 +16,7 @@ class Table{
 	var $fields = array();
 	var $level= 0;
 	var $orderField= 'id';
+	var $detailView = '';
 
 	function __construct() {
 		global $dbtype;
@@ -44,6 +45,13 @@ class Table{
 			"delete"   : "true",
 			"colModel" : [
 				{"display": "Id",       "name" : "id",       "width" : 40  }
+			]
+		}';
+	}
+	function getForm(){
+		return '{
+			"colModel" : [
+				{"display": "Id",       "name" : "id",       "width" : 40  },
 			]
 		}';
 	}
@@ -191,29 +199,21 @@ class Table{
 
 		$this->tpl->assign('error', $this->error);
 		if(isset($this->templateData[$this->formTemplate])){
-			$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
+		//	$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
 		}
+		$this->tpl->assign('data', json_decode(($this->getForm())));
 		$this->tpl->display($this->formTemplate);
 	}
 	function displayList($records = array()) {
 		$this->tpl->assign('records', $records);
 		$this->tpl->assign('masterId', $this->masterId);
+		$this->tpl->assign('detailView', $this->detailView);
 		$this->tpl->assign('id',$this->id);
 		$this->tpl->assign('orderField',$this->orderField);
 		if(isset($this->templateData[$this->listTemplate])){
 			//$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
 		}
 		$this->tpl->assign('data', json_decode(($this->getTable())));
-		$this->tpl->display($this->listTemplate);        
-	}
-	function displayListOld($records = array()) {
-		$this->tpl->assign('records', $records);
-		$this->tpl->assign('masterId', $this->masterId);
-		$this->tpl->assign('id',$this->id);
-		$this->tpl->assign('orderField',$this->orderField);
-		if(isset($this->templateData[$this->listTemplate])){
-			$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
-		}
 		$this->tpl->display($this->listTemplate);        
 	}
 	function delete(){
@@ -232,7 +232,7 @@ class Table{
 		}	
 		return true;
 	}
-	function updateEntry($formvars) {        
+	function updateEntryOld($formvars) {        
 		try {
 
 			$q = "update " . $this->table . " set ";
@@ -258,6 +258,43 @@ class Table{
 		}	
 		return true;
 	}
+	function updateEntry($formvars) {        
+		try {
+
+			$q = "update " . $this->table . " set ";
+			foreach($this->fields as $field){
+				$q.= $field . ' =  ?,';
+			}
+			$q=substr($q,0, -1);//quitamos la última coma
+			$q .= ' where id = ?';
+			$rh = $this->pdo->prepare($q);
+			$v = array();
+			foreach($this->fields as $field){
+				if(!isset($formvars[$field])){
+					$v[] = $_FILES[$field]['name'];
+					$uploaddir = getcwd() ."/images/";
+					$uploadfile = $uploaddir . basename($_FILES[$field]['name']);
+
+					if (move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile)) {
+					} else {
+						echo "Error subiendo el fichero";
+					}
+				}else{
+					if(is_array($formvars[$field])){
+						$v[] = implode(",", $formvars[$field]);
+					}else{
+						$v[] = $formvars[$field];
+					}
+				}
+			}
+			$v[] = $this->id;
+			$rh->execute($v);
+		} catch (PDOException $e) {
+			print "Error!: " . $e->getMessage();
+			return false;
+		}	
+		return true;
+	}
 	function addEntry($formvars) {        
 		try {
 			$q = "insert into " . $this->table . " (";
@@ -273,6 +310,50 @@ class Table{
 			$q .= ')';
 			$rh = $this->pdo->prepare($q);
 			$v = array();
+			foreach($this->fields as $field){
+				if(!isset($formvars[$field])){
+					$v[] = $_FILES[$field]['name'];
+					$uploaddir = getcwd() ."/images/";
+					$uploadfile = $uploaddir . basename($_FILES[$field]['name']);
+
+					if (move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile)) {
+					} else {
+						echo "Error subiendo el fichero";
+					}
+				}else{
+					if(is_array($formvars[$field])){
+						$v[] = implode(",", $formvars[$field]);
+					}else{
+						$v[] = $formvars[$field];
+					}
+				}
+			}
+			$rh->execute($v);
+
+
+		} catch (PDOException $e) {
+			print "Error!: " . $e->getMessage();
+			return false;
+		}	
+		return true;
+	}
+	function addEntryOld($formvars) {        
+		try {
+			$q = "insert into " . $this->table . " (";
+			foreach($this->fields as $field){
+				$q.= $field . ',';
+			}
+			$q=substr($q,0, -1);//quitamos la última coma
+			$q .= ') values (';
+			foreach($this->fields as $field){
+				$q.= '?,';
+			}
+			$q=substr($q,0, -1);//quitamos la última coma
+			$q .= ')';
+			$rh = $this->pdo->prepare($q);
+			$v = array();
+			print_r($formvars);
+			print_r($_FILES);
 			foreach($this->fields as $field){
 				if(is_array($formvars[$field])){
 					$v[] = implode(",", $formvars[$field]);

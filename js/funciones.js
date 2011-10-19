@@ -22,6 +22,9 @@ function reloadLookups(){
 	});
 }
 $(function() {
+	$(".date").each(function(){
+		$(this).datepicker({dateFormat:'yy/mm/dd'});
+	});
 	$(".lookup").each(function(){
 		var comp = $(this); 
 		var url = "lib/Search.php"

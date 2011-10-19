@@ -35,6 +35,53 @@ class Piloto extends MasterTable{
 			]
 		}';
 	}
+	function getForm(){
+		return '{
+			"colModel" : [
+				{"type":"text", "display": "Id",       "value" : "id",       "width" : 40  },
+				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
+				{"type":"text", "display": "Dirección","value" : "direccion","width" : 150 },
+				{"type":"text", "display": "Teléfono", "value" : "telefono", "width" : 250 },
+				{"type":"text", "display": "Email",    "value" : "email",    "width" : 250 },
+				{"type":"date", "display": "Fecha de nacimiento","value" : "fecha_de_nacimiento", "width" : 250 },
+				{"type":"file", "display": "Foto",     "value" : "foto",     "width" : 250 },
+				{
+					"type"     : "textarea"     , 
+					"display"  : "Comentarios"  ,     
+					"value"    : "foto"         ,     
+					"width"    : 50             , 
+					"height"   : 5 
+				},
+				{
+					"type"     : "menu"                ,
+					"display"  : "Estado civil"        ,     
+					"options"  : ["soltero", "casado", "divorciado"] ,
+					"value"    : "foto"                ,     
+					"width"    : 250 
+				},
+				{
+					"type"       :"lookup"      , 
+					"display"    :"Equipo"      ,   
+					"value"      :"equipo_id"   ,
+					"width"      : 5            , 
+					"id"         :"idDelEquipo" ,
+					"database"   :"carrilanas"  ,
+					"table"      :"equipo"      ,
+					"fieldSearch":"nombre"      ,
+					"fieldRet"   :"id"
+				},
+				{
+					"type"       :"external"      ,
+					"display"    :"Nombre del equipo"  ,             
+					"value"      :"equipo_id"          ,
+					"database"   :"carrilanas"         ,
+					"table"      :"equipo"             ,
+					"value_id"   :"equipo_id"          ,
+					"fieldRet"   :"nombre"
+				}
+			]
+		}';
+	}
 
 	function isValidForm($formvars) {
 		$this->error = null;

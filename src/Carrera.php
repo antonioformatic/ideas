@@ -14,19 +14,18 @@ class Carrera extends MasterTable{
 		$this->level = 10;
 		parent::__construct();
 	}
-	function dispatch($controller){
-		if(isset($_REQUEST['action'])){
-			$this->action= $_REQUEST['action']; 
-		}
-		switch($this->action) {
-		case 'movidas':
-			$controller->assign('nombre',"Michel Jackson"); 
-			$controller->display('imprimir.tpl');        
-			break;
-		default:
-			parent::dispatch($controller);
-			break;
-		}
+	function getTable(){
+		return '{
+			"add"      : "true",
+			"edit"     : "true",
+			"delete"   : "true",
+			"colModel" : [
+				{"display": "Id",       "name" : "id",       "width" : 40  },
+				{"display": "Fecha",   "name" : "fecha",   "width" : 150 },
+				{"display": "Lugar","name" : "lugar","width" : 150 },
+				{"display": "Distancia", "name" : "distancia", "width" : 250 } 
+			]
+		}';
 	}
 
 	function isValidForm($formvars) {
