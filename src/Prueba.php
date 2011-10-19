@@ -15,14 +15,21 @@ class Prueba extends MasterTable{
 			'usuario_id'          ,
 			'foto'          
 		);
-		$this->level = 10;
+		$this->level = 0;
 		parent::__construct();
 	}
 	function getTable(){
-		return '{
-			"add"      : "true",
-			"edit"     : "true",
-			"delete"   : "true",
+		$ret = '{' ;
+		if($_SESSION['nivel_usuario'] > 5){
+			$ret .= ' "add"      : "true"';
+			$ret .= ',"edit"     : "true"';
+			$ret .= ',"delete"   : "true"';
+		}else{
+			$ret .= ' "add"      : "false"';
+			$ret .= ',"edit"     : "false"';
+			$ret .= ',"delete"   : "false"';
+		}
+		$ret .= ',
 			"colModel" : [
 				{"display": "Id",              "name" : "id",             "width" : 40  },
 				{"display": "Nombre",          "name" : "nombre",         "width" : 150 },
@@ -33,6 +40,7 @@ class Prueba extends MasterTable{
 				{"display": "Foto",            "name" : "foto",           "width" : 250 }
 			]
 		}';
+		return $ret;
 	}
 	function getForm(){
 		return '{
@@ -43,7 +51,7 @@ class Prueba extends MasterTable{
 					"type"     : "menu"                              ,
 					"display"  : "Pagado"                            ,     
 					"value"    : "pagado"                            ,     
-					"options"  : ["Sí","No"] ,
+					"options"  : ["Si","No"] ,
 					"width"    : 25 
 				},
 				{
@@ -51,7 +59,7 @@ class Prueba extends MasterTable{
 					"display"  : "Comentarios"  ,     
 					"value"    : "comentario"   ,     
 					"width"    : 50             , 
-					"height"   : 5 
+					"height"   : 2 
 				},
 				{
 					"type"       :"lookup"       , 
