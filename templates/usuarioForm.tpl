@@ -3,21 +3,15 @@
 {include file="header.tpl"}
 {include file="menu.tpl"}
 <form action="{$SCRIPT_NAME}?action=submit" method="post">
-  <table border="1">
-    {if $error ne ""}
-      <tr>
-      <td bgcolor="yellow" colspan="2">
-      {if $error eq "nombre_empty"}
-	  	El nombre está vacío
-      {elseif $error eq "password_empty"} 
-	   	La clave no puede estar vacía
-      {elseif $error eq "nivel_empty"} 
-	   	El nivel no puede estar vacío
-      {/if}
-      </td>
-      </tr>
-    {/if}
-  </table>
+	<table border="0">
+		{foreach from=$errors item="error"}
+		<tr>
+			<td bgcolor="yellow" colspan="2">
+				{$error}
+			</td>
+		</tr>
+		{/foreach}
+	</table>
 
   Nombre:
   <input 

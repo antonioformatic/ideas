@@ -40,7 +40,11 @@ $result = array();
 do {
 	$label= '';
 	foreach($fieldSearch as $field){
-		$label.= $row[$field] . ", ";	
+		if($field == "image"){
+			$label.= '<img src="images/'.$row[$field].'"></img>, ';	
+		}else{
+			$label.= $row[$field] . ", ";	
+		}
 	}
 	$label=substr($label,0, -2);//quitamos la última coma 
 	array_push(

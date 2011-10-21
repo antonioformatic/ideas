@@ -1,20 +1,12 @@
 <form action="{$SCRIPT_NAME}?action=submit" method="post" enctype='multipart/form-data'>
 	<table border="0">
-		{if $error ne ""}
-			<tr>
+		{foreach from=$errors item="error"}
+		<tr>
 			<td bgcolor="yellow" colspan="2">
-				{if $error eq "nombre_empty"}
-					Se necesita un nombre
-				{elseif $error eq "apellidos_empty"}
-					Los apellidos no pueden estar vacíos 
-				{elseif $error eq "dni_empty"}
-					El DNI no puede estar vacío 
-				{elseif $error eq "telefono_empty"}
-					El teléfono no puede estar vacío 
-				{/if}
+				{$error}
 			</td>
-			</tr>
-		{/if}
+		</tr>
+		{/foreach}
 	</table>
 	{foreach from=$data->colModel item="col"}
 		{if $col->type eq "text"}
@@ -39,20 +31,21 @@
 				class = "lookup"
 				size= "{$col->width}"
 				name="{$col->value}"           
-				id = "lookup_{$col->value}"
+				id = "{$col->value}"
 				value="{$formVars.{$col->value}|escape}" 
 				database="{$col->database}"
 				table="{$col->table}"
 				fieldSearch="{$col->fieldSearch}"
 				fieldRet="{$col->fieldRet}"
-				>
+				/>
 		{elseif $col->type eq "external"}
 			<div
 				class="externalField"
 				database="{$col->database}"
 				table="{$col->table}"
-				value_id="lookup_{$col->value_id}" 
+				value_id="{$col->value_id}" 
 				fieldRet="{$col->fieldRet}"
+				id="lookup_{$col->value_id}"
 			></div>
 		{/if}
 		<br /> 

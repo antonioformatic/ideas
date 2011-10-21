@@ -2,7 +2,7 @@
 class Table{
 	var $pdo = null;
 	var $tpl = null;
-	var $error = null;
+	var $errors = null;
 	var $fromRec = 0;
 	var $recsByPage = 5;
 	var $formTemplate = '';
@@ -197,7 +197,7 @@ class Table{
 			$this->tpl->assign('db_action','update');
 		}
 
-		$this->tpl->assign('error', $this->error);
+		$this->tpl->assign('errors', $this->errors);
 		if(isset($this->templateData[$this->formTemplate])){
 		//	$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
 		}
@@ -274,11 +274,7 @@ class Table{
 					$v[] = $_FILES[$field]['name'];
 					$uploaddir = getcwd() ."/images/";
 					$uploadfile = $uploaddir . basename($_FILES[$field]['name']);
-
-					if (move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile)) {
-					} else {
-						echo "Error subiendo el fichero";
-					}
+					move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile); 
 				}else{
 					if(is_array($formvars[$field])){
 						$v[] = implode(",", $formvars[$field]);

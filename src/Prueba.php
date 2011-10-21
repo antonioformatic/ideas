@@ -13,7 +13,7 @@ class Prueba extends MasterTable{
 			'pagado'              ,
 			'comentario'          ,
 			'usuario_id'          ,
-			'foto'          
+			'foto_id'          
 		);
 		$this->level = 0;
 		parent::__construct();
@@ -63,32 +63,28 @@ class Prueba extends MasterTable{
 				},
 				{
 					"type"       :"lookup"       , 
-					"display"    :"Usuario"      ,   
-					"value"      :"usuario_id"   ,
-					"width"      : 5             , 
+					"display"    :"Foto"         ,   
+					"value"      :"foto_id"      ,
+					"width"      : 25            , 
 					"id"         :"idDelUsuario" ,
 					"database"   :"carrilanas"   ,
-					"table"      :"usuario"      ,
-					"fieldSearch":"nombre"       ,
+					"table"      :"foto"         ,
+					"fieldSearch":"nombre,image" ,
 					"fieldRet"   :"id"
-				},
-				{
-					"type"       :"external"           ,
-					"display"    :"Nombre del usuario" ,             
-					"database"   :"carrilanas"         ,
-					"table"      :"usuario"            ,
-					"value_id"   :"usuario_id"         ,
-					"fieldRet"   :"nombre"
-				},
-				{"type":"image", "display": "Foto", "value" : "foto","width" : 25 }
+				} 
 			]
 		}';
 	}
 
 	function isValidForm($formvars) {
-		$this->error = null;
-
-		return true;
+		$this->errors = null;
+		if(strlen($formvars['nombre']) == 0) {
+			$this->errors[] = 'El nombre está vacío';
+		}
+		if(strlen($formvars['usuario_id']) == 0) {
+			$this->errors[] = 'Tiene que seleccionar un usuario';
+		}
+		return empty($this->errors);
 	}
 }
 ?>

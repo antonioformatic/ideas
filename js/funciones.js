@@ -6,17 +6,24 @@
 */
 function reloadLookups(){
 	$(".externalField").each(function(){
-		x = $(this); 
+		var x = $(this); 
+		var value_id= x.attr('value_id')
+		var text = $("#"+value_id).val(); 
 		$.ajax({
 			url :"lib/Lookup.php",
 			data: {
 				database:    x.attr('database'),
 				table:       x.attr('table'),
 				fieldRet:    x.attr('fieldRet'),
-				value_id:   $("#"+x.attr('value_id')).val()
+				value_id:    text, 
+				fieldShow:   x.attr('id')  
 			},
 			success: function(data) {
-				x.text(data);
+				if(data != ""){
+					var resultado = JSON.parse(data);
+					n = $("#"+resultado.fieldShow);
+					n.text(resultado.ret);
+				}
 			}
 		});
 	});
@@ -48,7 +55,12 @@ $(function() {
 				reloadLookups();
 				return false;
 			}
-		});
+		}).data( "autocomplete" )._renderItem = function( ul, item ) {
+			return $( "<li></li>" )
+				.data( "item.autocomplete", item )
+				.append( "<a>" + item.label + "</a>" )
+				.appendTo( ul );
+		};
 	});
 	reloadLookups();	
 });

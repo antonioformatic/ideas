@@ -6,8 +6,9 @@ require(SRC_DIR . 'Prueba.php');
 require(SRC_DIR . 'Carrera.php');
 require(SRC_DIR . 'Noticia.php');
 require(SRC_DIR . 'Comentario.php');
-require(SRC_DIR . 'Participante.php');
-require(SRC_DIR . 'CarreraConParticipantes.php');
+require(SRC_DIR . 'Inscripcion.php');
+require(SRC_DIR . 'CarreraConLlegadas.php');
+require(SRC_DIR . 'CarreraConInscripciones.php');
 require(SRC_DIR . 'Usuario.php');
 require(SRC_DIR . 'Logger.php');
 require(SRC_DIR . 'Inicio.php');
@@ -19,11 +20,10 @@ class Controller extends BasicController{
 		$this->assign('opciones', array(
 			'Inicio'          => 'inicio',
 			'Carreras'        => 'carrera',
-			'Participantes'   => 'carreraConParticipantes',
 			'Pilotos'         => 'piloto',
 			'Pruebas'         => 'prueba',
-			'Inscripciones'   => 'carreraConInscripciones',
-			'Clasificaciones' => 'carreraConCalificaciones',
+			'Inscripciones'   => 'inscripcion',
+			'Clasificaciones' => 'carreraConLlegadas',
 			'Foro'            => 'noticia',
 			'Usuarios'        => 'usuario',
 			'Login'           => 'login',
@@ -49,20 +49,17 @@ class Controller extends BasicController{
 		case 'carrera':
 			$object = new Carrera; 
 			break;
-		case 'participante':
-			$object = new Participante; 
+		case 'inscripcion':
+			$object = new Inscripcion; 
 			break;
 		case 'prueba':
 			$object = new Prueba; 
 			break;
-		case 'carreraConParticipantes':
-			$object = new CarreraConParticipantes; 
-			break;
 		case 'carreraConInscripciones':
 			$object = new CarreraConInscripciones; 
 			break;
-		case 'carreraConCalificaciones':
-			$object = new CarreraConCalificaciones; 
+		case 'carreraConLlegadas':
+			$object = new CarreraConLlegadas; 
 			break;
 		case 'noticia':
 			$object = new Noticia; 

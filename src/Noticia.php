@@ -14,8 +14,7 @@ class Noticia extends MasterTable{
 	}
 
 	function isValidForm($formvars) {
-		$this->error = null;
-
+		$this->errors= null;
 		return true;
 	}
 }

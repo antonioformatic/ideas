@@ -36,23 +36,19 @@ class Logger extends Table{
 	}
 
 	function isValidForm($formvars) {
-		$this->error = null;
-
+		$this->errors = null;
 		if(strlen($formvars['nombre']) == 0) {
-			$this->error = 'nombre_empty';
-			return false; 
+			$this->errors[] = 'nombre_empty';
 		}
 
 		if(strlen($formvars['password']) == 0) {
-			$this->error = 'password_empty';
-			return false; 
+			$this->errors[] = 'password_empty';
 		}
 
 		if(strlen($formvars['nivel']) == 0) {
-			$this->error = 'nivel_empty';
-			return false; 
+			$this->errors[] = 'nivel_empty';
 		}
-		return true;
+		return empty($this->errors);
 	}
 	function getUser($nombre, $password){
 		try {

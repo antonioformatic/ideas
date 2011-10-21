@@ -15,7 +15,7 @@ class Comentario extends DetailTable{
 	}
 
 	function isValidForm($formvars) {
-		$this->error = null;
+		$this->errors = null;
 		return true;
 	}
 }

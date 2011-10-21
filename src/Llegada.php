@@ -1,8 +1,9 @@
 <?php
 require_once(LIB_DIR .'MasterTable.php');
-class CarreraConCalificaciones extends MasterTable{
+class Calificacion extends MasterTable{
 	function __construct() {
-		$this->table        = 'carrera';
+		$this->table        = 'calificacion';
+		$this->masterTable  = 'carrera';
 		$this->formTemplate = 'carreraForm.tpl';
 		$this->listTemplate = 'carreraConCalificacionesList.tpl';
 		$this->fields= array(
@@ -16,7 +17,7 @@ class CarreraConCalificaciones extends MasterTable{
 	}
 
 	function isValidForm($formvars) {
-		$this->error = null;
+		$this->errors = null;
 		return true;
 	}
 }

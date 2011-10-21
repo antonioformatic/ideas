@@ -3,21 +3,15 @@
 {include file="header.tpl"}
 {include file="menu.tpl"}
 <form action="{$SCRIPT_NAME}?action=submit" method="post">
-  <table border="1">
-    {if $error ne ""}
-      <tr>
-      <td bgcolor="yellow" colspan="2">
-      {if $error eq "importe_empty"}
-	  	Pon algun importe 
-      {elseif $error eq "concepto_empty"} 
-	  	Se necesita un concepto 
-      {elseif $error eq "fecha_empty"} 
-	  	Se necesita una fecha 
-      {/if}
-      </td>
-      </tr>
-    {/if}
-  </table>
+	<table border="0">
+		{foreach from=$errors item="error"}
+		<tr>
+			<td bgcolor="yellow" colspan="2">
+				{$error}
+			</td>
+		</tr>
+		{/foreach}
+	</table>
 <br />
   Texto: 
 <textarea name="texto">{$formVars.texto|escape}</textarea>

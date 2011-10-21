@@ -21,20 +21,22 @@ global $dbpass;
 $connection = mysql_pconnect($dbhost, $dbuser, $dbpass) 
 	or trigger_error(mysql_error(),E_USER_ERROR); 
 
-$database= $_GET['database'];
-$table   = $_GET['table'];
-$fieldRet= $_GET['fieldRet'];
-$id      = $_GET['value_id'];
-if(!$id){
+$database  = $_GET['database'];
+$table     = $_GET['table'];
+$fieldRet  = $_GET['fieldRet'];
+$value_id  = $_GET['value_id'];
+$fieldShow = $_GET['fieldShow'];
+if(!$value_id){
 	echo "";
 	return;
 }
 mysql_select_db($database, $connection);
-$query_conexion = "SELECT * FROM ". $table . "  WHERE id = ". $id; 
+$query_conexion = "SELECT * FROM ". $table . "  WHERE id = ". $value_id; 
 $conexion = mysql_query($query_conexion, $connection) or die(mysql_error());
 $row = mysql_fetch_assoc($conexion);
+$ret = array("ret" => $row[$fieldRet], "fieldShow" => $fieldShow);
 if($row){
-	echo $row[$fieldRet];
+	echo json_encode($ret);
 }else{
 	echo "";
 }
