@@ -2,6 +2,7 @@
 require(LIB_DIR . 'BasicController.php');
 
 require(SRC_DIR . 'Prueba.php');
+require(SRC_DIR . 'FotoDePrueba.php');
 
 require(SRC_DIR . 'Carrera.php');
 require(SRC_DIR . 'Noticia.php');
@@ -54,6 +55,9 @@ class Controller extends BasicController{
 			break;
 		case 'prueba':
 			$object = new Prueba; 
+			break;
+		case 'fotoDePrueba':
+			$object = new FotoDePrueba; 
 			break;
 		case 'carreraConInscripciones':
 			$object = new CarreraConInscripciones; 

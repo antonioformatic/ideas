@@ -32,7 +32,23 @@ class DetailTable extends Table{
 			$rh = $this->pdo->prepare($q);
 			$v = array();
 			foreach($this->fields as $field){
-				$v[] = $formvars[$field];
+				//$v[] = $formvars[$field];
+				if(!isset($formvars[$field])){
+					$v[] = $_FILES[$field]['name'];
+					$uploaddir = getcwd() ."/images/";
+					$uploadfile = $uploaddir . basename($_FILES[$field]['name']);
+
+					if (move_uploaded_file($_FILES[$field]['tmp_name'], $uploadfile)) {
+					} else {
+						echo "Error subiendo el fichero";
+					}
+				}else{
+					if(is_array($formvars[$field])){
+						$v[] = implode(",", $formvars[$field]);
+					}else{
+						$v[] = $formvars[$field];
+					}
+				}
 			}
 			$v[] = $this->masterId;
 			$rh->execute($v);
@@ -43,26 +59,36 @@ class DetailTable extends Table{
 		return true;
 		}
 	//sobreescrita
-	function getRecords(){
-		$this->fromRec =  $_SESSION['fromRec'];
-		try {
-			$sql = 'select * from ' . $this->listTable 
-				.' where '. $this->externalIndex . ' = ' 
-				.$this->masterId 
-				. ' LIMIT ' 
-				. $this->fromRec 
-				. ','
-				.$this->recsByPage;
-			$rows = array();
-			foreach ($this->pdo->query($sql) as $row) {
-				$rows[] = $row;
-			}
-
-		} catch (PDOException $e) {
-			print "Error!: " . $e->getMessage();
-			return false;
-		} 	
-		return $rows;   
+	function getRecords($id = -1){
+		if($id == -1){
+			$this->fromRec =  $_SESSION['fromRec'];
+			try {
+				$text = 'select * from ' . $this->listTable 
+					.' where '. $this->externalIndex . ' = ' 
+					.$this->masterId 
+					. ' LIMIT ' 
+					. $this->fromRec 
+					. ','
+					.$this->recsByPage;
+				$sql = $this->pdo->prepare($text);
+				$sql->execute();
+				$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
+			} catch (PDOException $e) {
+				print "Error!: " . $e->getMessage();
+				return false;
+			} 	
+			return $rows;   
+		}else{
+			try {
+				$rh = $this->pdo->prepare("select * from " . $this->listTable . " where id = ?");
+				$rh->execute(array($id));
+				$row = $rh->fetch(PDO::FETCH_BOTH);
+			} catch (PDOException $e) {
+				print "Error!: " . $e->getMessage();
+				return false;
+			} 	
+			return $row;   
+		}
 	}
 }
 ?>

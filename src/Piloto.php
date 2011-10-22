@@ -24,21 +24,20 @@ class Piloto extends MasterTable{
 			"edit"     : "true",
 			"delete"   : "true",
 			"colModel" : [
-				{"display": "Id",       "name" : "id",       "width" : 40  },
-				{"display": "Nombre",   "name" : "nombre",   "width" : 150 },
-				{"display": "Dirección","name" : "direccion","width" : 150 },
-				{"display": "Teléfono", "name" : "telefono", "width" : 250 },
-				{"display": "Email",    "name" : "email",    "width" : 250 },
-				{"display": "Fecha nac","name" : "fecha_de_nacimiento", "width" : 250 },
-				{"display": "Foto",     "name" : "foto",     "width" : 250 },
-				{"display": "Equipo",   "name" : "equipo_nombre","width" : 250 }
+				{"type":"text", "display": "Id",       "name" : "id",       "width" : 40  },
+				{"type":"text", "display": "Nombre",   "name" : "nombre",   "width" : 150 },
+				{"type":"text", "display": "Dirección","name" : "direccion","width" : 150 },
+				{"type":"text", "display": "Teléfono", "name" : "telefono", "width" : 250 },
+				{"type":"text", "display": "Email",    "name" : "email",    "width" : 250 },
+				{"type":"text", "display": "Fecha nac","name" : "fecha_de_nacimiento", "width" : 250 },
+				{"type":"text", "display": "Foto",     "name" : "foto",     "width" : 250 },
+				{"type":"text", "display": "Equipo",   "name" : "equipo_nombre","width" : 250 }
 			]
 		}';
 	}
 	function getForm(){
 		return '{
 			"colModel" : [
-				{"type":"text", "display": "Id",       "value" : "id",       "width" : 40  },
 				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
 				{"type":"text", "display": "Dirección","value" : "direccion","width" : 150 },
 				{"type":"text", "display": "Teléfono", "value" : "telefono", "width" : 250 },

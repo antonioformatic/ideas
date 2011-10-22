@@ -27,6 +27,8 @@
 			<select name="{$col->value|escape}">
 			   {html_options values=$col->options output=$col->options selected="{$formVars.{$col->value}|escape}"}
 		   </select>
+		{elseif $col->type eq "masterId"}
+			<input type="hidden" name="{$col->value}" value="{$masterId}" />
 		{elseif $col->type eq "lookup"}
 			{$col->display}:
 			<input

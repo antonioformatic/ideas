@@ -1,13 +1,14 @@
 <?php
-require_once(LIB_DIR .'MasterTable.php');
-class Inscripcion extends MasterTable{
+require_once(LIB_DIR .'DetailTable.php');
+class Inscripcion extends DetailTable{
 	function __construct() {
 		$this->table        = 'inscripcion';
 		$this->listTable    = 'inscripcionList';
+		$this->masterTable  = 'carrera';
+		$this->externalIndex= 'carrera_id';
 		$this->formTemplate = 'inscripcionForm.tpl';
 		$this->listTemplate = 'inscripcionList.tpl';
 		$this->fields= array(
-				'carrera_id'   , 
 				'equipo_id'    , 
 				'categoria_id'  
 		);
@@ -21,9 +22,9 @@ class Inscripcion extends MasterTable{
 			"edit"     : "true",
 			"delete"   : "true",
 			"colModel" : [
-				{"display": "Carrera",    "name" : "carrera_nombre",   "width" : 50 },
-				{"display": "Equipo",     "name" : "equipo_nombre",    "width" : 5  }, 
-				{"display": "Categoria",  "name" : "categoria_nombre", "width" : 50 } 
+				{"type":"text", "display": "Carrera",    "name" : "carrera_nombre",   "width" : 50 },
+				{"type":"text", "display": "Equipo",     "name" : "equipo_nombre",    "width" : 5  }, 
+				{"type":"text", "display": "Categoria",  "name" : "categoria_nombre", "width" : 50 } 
 			]
 		}';
 	}
@@ -31,15 +32,9 @@ class Inscripcion extends MasterTable{
 		return '{
 			"colModel" : [
 				{
-					"type"       :"lookup"       , 
+					"type"       :"masterId"     , 
 					"display"    :"Carrera"      ,   
-					"value"      :"carrera_id"   ,
-					"width"      : 5             , 
-					"id"         :"carrera_id" ,
-					"database"   :"carrilanas"   ,
-					"table"      :"carrera"      ,
-					"fieldSearch":"nombre,lugar,fecha",
-					"fieldRet"   :"id"
+					"value"      :"carrera_id"   
 				},
 				{
 					"type"       :"external"           ,

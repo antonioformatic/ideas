@@ -22,12 +22,12 @@ class Carrera extends MasterTable{
 			"edit"     : "true",
 			"delete"   : "true",
 			"colModel" : [
-				{"display": "Id",       "name" : "id",       "width" : 5  },
-				{"display": "Nombre",   "name" : "nombre",   "width" : 50 },
-				{"display": "Fecha",    "name" : "fecha",    "width" : 25 },
-				{"display": "Lugar",    "name" : "lugar",    "width" : 50 },
-				{"display": "Distancia","name" : "distancia","width" : 5  }, 
-				{"display": "Mapa",     "name" : "mapa",     "width" : 50 } 
+				{"type":"text", "display": "Id",       "name" : "id",       "width" : 5  },
+				{"type":"text", "display": "Nombre",   "name" : "nombre",   "width" : 50 },
+				{"type":"text", "display": "Fecha",    "name" : "fecha",    "width" : 25 },
+				{"type":"text", "display": "Lugar",    "name" : "lugar",    "width" : 50 },
+				{"type":"text", "display": "Distancia","name" : "distancia","width" : 5  }, 
+				{"type":"text", "display": "Mapa",     "name" : "mapa",     "width" : 50 } 
 			]
 		}';
 	}

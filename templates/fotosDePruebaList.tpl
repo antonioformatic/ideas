@@ -1,6 +1,7 @@
+{* Smarty *}
 {include file="header.tpl"}
 {include file="menu.tpl"}
-<a href="{$SCRIPT_NAME}?action=close&view=carrera"  >
+<a href="{$SCRIPT_NAME}?action=close&view=prueba"  >
 	<button>&uarr;</button>
 </a>
 {include file="table.tpl"}

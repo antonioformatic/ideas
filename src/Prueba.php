@@ -6,7 +6,7 @@ class Prueba extends MasterTable{
 		$this->listTable    = 'pruebasView';
 		$this->formTemplate = 'pruebaForm.tpl';
 		$this->listTemplate = 'pruebaList.tpl';
-		$this->detailView   = 'piloto';
+		$this->detailView   = 'fotoDePrueba';
 		$this->fields= array(
 			'nombre'              ,
 			'fecha'               ,
