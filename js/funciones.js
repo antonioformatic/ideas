@@ -34,6 +34,9 @@ $(function() {
 	});
 	$(".lookup").each(function(){
 		var comp = $(this); 
+		comp.click(function(){
+			$(this).search();
+		});
 		var url = "lib/Search.php"
 			+ "?database="   + comp.attr('database')
 			+ "&table="      + comp.attr('table')

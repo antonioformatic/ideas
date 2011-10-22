@@ -3,7 +3,7 @@ require_once(LIB_DIR .'MasterTable.php');
 class Prueba extends MasterTable{
 	function __construct() {
 		$this->table        = 'pruebas';
-		$this->listTable    = '';
+		$this->listTable    = 'pruebasView';
 		$this->formTemplate = 'pruebaForm.tpl';
 		$this->listTemplate = 'pruebaList.tpl';
 		$this->detailView   = 'piloto';
@@ -31,13 +31,13 @@ class Prueba extends MasterTable{
 		}
 		$ret .= ',
 			"colModel" : [
-				{"display": "Id",              "name" : "id",             "width" : 40  },
-				{"display": "Nombre",          "name" : "nombre",         "width" : 150 },
-				{"display": "Fecha",           "name" : "fecha",          "width" : 150 },
-				{"display": "Pagado",          "name" : "pagado",         "width" : 250 },
-				{"display": "Comentario",      "name" : "comentario",     "width" : 250 },
-				{"display": "Usuario",         "name" : "usuario_id",     "width" : 250 },
-				{"display": "Foto",            "name" : "foto",           "width" : 250 }
+				{"type":"text", "display": "Id",        "name" : "id",             "width" : 40  },
+				{"type":"text", "display": "Nombre",    "name" : "nombre",         "width" : 150 },
+				{"type":"text", "display": "Fecha",     "name" : "fecha",          "width" : 150 },
+				{"type":"text", "display": "Pagado",    "name" : "pagado",         "width" : 250 },
+				{"type":"text", "display": "Comentario","name" : "comentario",     "width" : 250 },
+				{"type":"text", "display": "Usuario",   "name" : "usuario_nombre", "width" : 250 },
+				{"type":"image","display": "Foto",      "name" : "foto_image",     "width" : 250 }
 			]
 		}';
 		return $ret;
@@ -63,10 +63,21 @@ class Prueba extends MasterTable{
 				},
 				{
 					"type"       :"lookup"       , 
+					"display"    :"Usuario"      ,   
+					"value"      :"usuario_id"   ,
+					"width"      : 25            , 
+					"id"         :"idDelUsuario" ,
+					"database"   :"carrilanas"   ,
+					"table"      :"usuario"      ,
+					"fieldSearch":"nombre"       ,
+					"fieldRet"   :"id"
+				}, 
+				{
+					"type"       :"lookup"       , 
 					"display"    :"Foto"         ,   
 					"value"      :"foto_id"      ,
 					"width"      : 25            , 
-					"id"         :"idDelUsuario" ,
+					"id"         :"idFoto"       ,
 					"database"   :"carrilanas"   ,
 					"table"      :"foto"         ,
 					"fieldSearch":"nombre,image" ,

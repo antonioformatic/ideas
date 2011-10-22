@@ -9,6 +9,9 @@
 		{/foreach}
 	</table>
 	{foreach from=$data->colModel item="col"}
+		{if $col->type neq "external"}
+			<br />
+		{/if}
 		{if $col->type eq "text"}
 			{$col->display}: <input name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
 		{elseif $col->type eq "date"}
@@ -40,16 +43,17 @@
 				/>
 		{elseif $col->type eq "external"}
 			<div
+				style="display:inline;"
 				class="externalField"
 				database="{$col->database}"
 				table="{$col->table}"
 				value_id="{$col->value_id}" 
 				fieldRet="{$col->fieldRet}"
 				id="lookup_{$col->value_id}"
-			></div>
+			>&nbsp;</div>
 		{/if}
-		<br /> 
 	{/foreach}
+	<br />
 	<input type="submit" value="Enviar" />
 	<input type="reset" value="Reset" />
 	<input type="hidden" name="id" value="{$formVars.id}" />

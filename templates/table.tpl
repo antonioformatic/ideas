@@ -5,6 +5,9 @@
 <input type="submit" value="Ordenar">
 </form>
 <table border="0" >
+{if $data->edit eq "true"}
+	<th bgcolor="#d1d1d1">&nbsp;</th>
+{/if}
 	{foreach from=$data->colModel item="col"}
 		<th bgcolor="#d1d1d1">{$col->display}</th>
 	{/foreach}
@@ -22,7 +25,11 @@
 		</td>
 			{foreach from=$data->colModel item="col"}
 				<td>
-					{$record.{$col->name}|escape}
+					{if $col->type eq "image"}
+						<img src="images/{$record.{$col->name}|escape}"></img>
+					{else}
+						{$record.{$col->name}|escape}
+					{/if}
 				</td>        
 			{/foreach}
 			{if $data->edit eq "true"}
