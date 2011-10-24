@@ -1,8 +1,9 @@
 <form action=  "{$SCRIPT_NAME}?action=orderBy" method="post">
-<select name="orderField">
-	{html_options values=array_keys($records[0]) output=array_keys($records[0]) selected ='id'}
-</select>
-<input type="submit" value="Ordenar">
+	<select name="orderField">
+		{html_options values=array_keys($records[0]) output=array_keys($records[0]) selected ='id'}
+	</select>
+	<input type="text" name="valueSearch" />
+	<input type="submit" value="Ordenar">
 </form>
 <table border="0" >
 {if $data->edit eq "true"}

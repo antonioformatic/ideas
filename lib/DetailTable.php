@@ -50,6 +50,9 @@ class DetailTable extends Table{
 					}
 				}
 			}
+			echo ($q);
+			echo "----------------<p>";
+			var_dump($v);
 			$v[] = $this->masterId;
 			$rh->execute($v);
 		} catch (PDOException $e) {

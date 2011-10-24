@@ -35,13 +35,15 @@ $(function() {
 	$(".lookup").each(function(){
 		var comp = $(this); 
 		comp.click(function(){
-			$(this).search();
+			//$(this).search();
 		});
 		var url = "lib/Search.php"
 			+ "?database="   + comp.attr('database')
 			+ "&table="      + comp.attr('table')
 			+ "&fieldSearch="+ comp.attr('fieldSearch')
 			+ "&fieldRet="   + comp.attr('fieldRet')
+			+ "&filterField="+ comp.attr('filterField')
+			+ "&filterValue="+ comp.attr('filterValue')
 		;
 		comp.change(function (){
 			reloadLookups();	

@@ -14,6 +14,8 @@
 		{/if}
 		{if $col->type eq "text"}
 			{$col->display}: <input name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
+		{elseif $col->type eq "password"}
+			{$col->display}: <input type="password" name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
 		{elseif $col->type eq "date"}
 			{$col->display}: <input class="date" name="{$col->value|escape}" value="{$formVars.{$col->value}|escape}" />
 		{elseif $col->type eq "image"}
@@ -41,6 +43,8 @@
 				database="{$col->database}"
 				table="{$col->table}"
 				fieldSearch="{$col->fieldSearch}"
+				filterField="{$col->filterField|default:''}"
+				filterValue="{${$col->filterValue}|default:''}"
 				fieldRet="{$col->fieldRet}"
 				/>
 		{elseif $col->type eq "external"}

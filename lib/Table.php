@@ -16,6 +16,7 @@ class Table{
 	var $fields = array();
 	var $level= 0;
 	var $orderField= 'id';
+	var $valueSearch= '';
 	var $detailView = '';
 
 	function __construct() {
@@ -84,6 +85,7 @@ class Table{
 		switch($this->action) {
 		case 'orderBy':
 			$this->orderField=$_REQUEST['orderField']; 
+			$this->valueSearch=$_REQUEST['valueSearch']; 
 			$this->displayList($this->getRecords());        
 			break;
 		case 'goFirst':
@@ -370,12 +372,13 @@ class Table{
 				$this->fromRec =  $_SESSION['fromRec'];
 			}
 			try {
-				$sql = $this->pdo->prepare(
-						'SELECT * FROM ' 
-						. $this->listTable 
-					.  ' ORDER BY ' . $this->orderField 
-					.  ' LIMIT ' . $this->fromRec . ',' .$this->recsByPage
-				);
+				$text= 'SELECT * FROM ' . $this->listTable;
+				if($this->valueSearch != ''){
+					$text .= " WHERE ". $this->orderField . " >= '" . $this->valueSearch . "'";
+				}
+				$text.= ' ORDER BY ' . $this->orderField;
+				$text.= ' LIMIT ' . $this->fromRec . ',' .$this->recsByPage;
+				$sql = $this->pdo->prepare($text);
 				$sql->execute();
 				$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
 
