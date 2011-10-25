@@ -3,8 +3,6 @@ require_once(LIB_DIR .'Table.php');
 class Usuario extends Table{
 	function __construct() {
 		$this->table = 'usuario';
-		$this->formTemplate = 'usuarioForm.tpl';
-		$this->listTemplate = 'usuarioList.tpl';
 		$this->fields= array(
 				'nombre', 
 				'password',
@@ -14,6 +12,39 @@ class Usuario extends Table{
 		parent::__construct();
 	}
 
+	function getTable(){
+		return '{
+			"add"      : "true",
+			"edit"     : "true",
+			"delete"   : "true",
+			"colModel" : [
+				{"type":"text", "display":    "Nombre",   "name" : "nombre",   "width" : 50 },
+				{"type":"password","display": "Password", "name" : "password",    "width" : 5  }, 
+				{"type":"text", "display":    "Nivel",    "name" : "nivel", "width" : 50 } 
+			]
+		}';
+	}
+	function getForm(){
+		return '{
+			"colModel" : [
+				{
+					"type"       :"text"    ,
+					"display"    :"Nombre"  ,             
+					"value"      :"nombre"         
+				},
+				{
+					"type"       :"password" ,
+					"display"    :"Password" ,             
+					"value"      :"password"         
+				},
+				{
+					"type"       :"text"  ,
+					"display"    :"Nivel" ,             
+					"value"      :"nivel"         
+				}
+			]
+		}';
+	}
 	function isValidForm($formvars) {
 		$this->errors = null;
 		if(strlen($formvars['nombre']) == 0) {

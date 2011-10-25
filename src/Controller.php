@@ -4,6 +4,7 @@ require(LIB_DIR . 'BasicController.php');
 require(SRC_DIR . 'Prueba.php');
 require(SRC_DIR . 'FotoDePrueba.php');
 
+require(SRC_DIR . 'Foto.php');
 require(SRC_DIR . 'Noticia.php');
 require(SRC_DIR . 'Comentario.php');
 require(SRC_DIR . 'Inscripcion.php');
@@ -20,6 +21,7 @@ class Controller extends BasicController{
 		parent::__construct();
 		$this->assign('opciones', array(
 			'Inicio'          => 'inicio',
+			'Fotos'           => 'foto',
 			'Pilotos'         => 'piloto',
 			'Pruebas'         => 'prueba',
 			'Inscripciones'   => 'carreraConInscripciones',
@@ -51,6 +53,9 @@ class Controller extends BasicController{
 			break;
 		case 'llegada':
 			$object = new Llegada; 
+			break;
+		case 'foto':
+			$object = new Foto; 
 			break;
 		case 'prueba':
 			$object = new Prueba; 

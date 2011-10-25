@@ -4,8 +4,6 @@ class Prueba extends MasterTable{
 	function __construct() {
 		$this->table        = 'pruebas';
 		$this->listTable    = 'pruebasView';
-		$this->formTemplate = 'pruebaForm.tpl';
-		$this->listTemplate = 'pruebaList.tpl';
 		$this->detailView   = 'fotoDePrueba';
 		$this->fields= array(
 			'nombre'              ,

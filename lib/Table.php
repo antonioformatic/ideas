@@ -18,6 +18,7 @@ class Table{
 	var $orderField= 'id';
 	var $valueSearch= '';
 	var $detailView = '';
+	var $masterView='';
 
 	function __construct() {
 		global $dbtype;
@@ -33,6 +34,12 @@ class Table{
 		}	
 		if($this->listTable == ''){
 			$this->listTable = $this->table;
+		}
+		if($this->formTemplate== ''){
+			$this->formTemplate= 'basicForm.tpl'; 
+		}
+		if($this->listTemplate== ''){
+			$this->listTemplate= 'basicList.tpl'; 
 		}
 		if(!isset($_SESSION)){
 			session_start();
@@ -210,6 +217,7 @@ class Table{
 		$this->tpl->assign('records', $records);
 		$this->tpl->assign('masterId', $this->masterId);
 		$this->tpl->assign('detailView', $this->detailView);
+		$this->tpl->assign('masterView', $this->masterView);
 		$this->tpl->assign('id',$this->id);
 		$this->tpl->assign('orderField',$this->orderField);
 		if(isset($this->templateData[$this->listTemplate])){

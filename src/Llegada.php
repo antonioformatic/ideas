@@ -5,9 +5,8 @@ class Llegada extends DetailTable{
 		$this->table        = 'llegada';
 		$this->listTable    = 'llegadaList';
 		$this->masterTable  = 'carrera';
+		$this->masterView   = 'carreraConLlegadas';
 		$this->externalIndex= 'carrera_id';
-		$this->formTemplate = 'llegadaForm.tpl';
-		$this->listTemplate = 'llegadaList.tpl';
 		$this->fields= array(
 				'tiempo', 
 				'puesto', 

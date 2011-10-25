@@ -4,8 +4,6 @@ class Piloto extends MasterTable{
 	function __construct() {
 		$this->table        = 'piloto';
 		$this->listTable    = 'pilotoConEquipo';
-		$this->formTemplate = 'pilotoForm.tpl';
-		$this->listTemplate = 'pilotoList.tpl';
 		$this->fields= array(
 			'nombre'              ,
 			'direccion'           ,
@@ -24,13 +22,12 @@ class Piloto extends MasterTable{
 			"edit"     : "true",
 			"delete"   : "true",
 			"colModel" : [
-				{"type":"text", "display": "Id",       "name" : "id",       "width" : 40  },
 				{"type":"text", "display": "Nombre",   "name" : "nombre",   "width" : 150 },
 				{"type":"text", "display": "Dirección","name" : "direccion","width" : 150 },
 				{"type":"text", "display": "Teléfono", "name" : "telefono", "width" : 250 },
 				{"type":"text", "display": "Email",    "name" : "email",    "width" : 250 },
 				{"type":"text", "display": "Fecha nac","name" : "fecha_de_nacimiento", "width" : 250 },
-				{"type":"text", "display": "Foto",     "name" : "foto",     "width" : 250 },
+				{"type":"image", "display": "Foto",    "name" : "foto",     "width" : 250 },
 				{"type":"text", "display": "Equipo",   "name" : "equipo_nombre","width" : 250 }
 			]
 		}';
@@ -43,21 +40,7 @@ class Piloto extends MasterTable{
 				{"type":"text", "display": "Teléfono", "value" : "telefono", "width" : 250 },
 				{"type":"text", "display": "Email",    "value" : "email",    "width" : 250 },
 				{"type":"date", "display": "Fecha de nacimiento","value" : "fecha_de_nacimiento", "width" : 250 },
-				{"type":"file", "display": "Foto",     "value" : "foto",     "width" : 250 },
-				{
-					"type"     : "textarea"     , 
-					"display"  : "Comentarios"  ,     
-					"value"    : "foto"         ,     
-					"width"    : 50             , 
-					"height"   : 5 
-				},
-				{
-					"type"     : "menu"                ,
-					"display"  : "Estado civil"        ,     
-					"options"  : ["soltero", "casado", "divorciado"] ,
-					"value"    : "foto"                ,     
-					"width"    : 250 
-				},
+				{"type":"image", "display": "Foto",     "value" : "foto",     "width" : 250 },
 				{
 					"type"       :"lookup"      , 
 					"display"    :"Equipo"      ,   

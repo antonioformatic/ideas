@@ -5,9 +5,8 @@ class Inscripcion extends DetailTable{
 		$this->table        = 'inscripcion';
 		$this->listTable    = 'inscripcionList';
 		$this->masterTable  = 'carrera';
+		$this->masterView   = 'carreraConInscripciones';
 		$this->externalIndex= 'carrera_id';
-		$this->formTemplate = 'inscripcionForm.tpl';
-		$this->listTemplate = 'inscripcionList.tpl';
 		$this->fields= array(
 				'equipo_id'    , 
 				'categoria_id'  

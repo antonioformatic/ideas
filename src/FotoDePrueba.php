@@ -5,9 +5,8 @@ class FotoDePrueba extends DetailTable{
 		$this->table        = 'fotosDePrueba';
 		$this->listTable    = 'fotosDePrueba';
 		$this->masterTable  = 'pruebas';
+		$this->masterView   = 'pruebas';
 		$this->externalIndex= 'pruebas_id';
-		$this->formTemplate = 'fotosDePruebaForm.tpl';
-		$this->listTemplate = 'fotosDePruebaList.tpl';
 		$this->fields= array(
 			'image'          
 		);

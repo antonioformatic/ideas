@@ -3,8 +3,6 @@ require_once(LIB_DIR .'MasterTable.php');
 class CarreraConInscripciones extends MasterTable{
 	function __construct() {
 		$this->table        = 'carrera';
-		$this->formTemplate = 'carreraForm.tpl';
-		$this->listTemplate = 'carreraList.tpl';
 		$this->detailView   = 'inscripcion';
 		$this->fields= array(
 				'nombre', 

@@ -6,7 +6,7 @@
 	<input type="submit" value="Ordenar">
 </form>
 <table border="0" >
-{if $data->edit eq "true"}
+{if $detailView != ''}
 	<th bgcolor="#d1d1d1">&nbsp;</th>
 {/if}
 	{foreach from=$data->colModel item="col"}
@@ -20,10 +20,12 @@
 {/if}
 	{foreach from=$records item="record"}
 		<tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
-        <td><a href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
-			<button>&darr;</button>
-			</a>
-		</td>
+		{if $detailView != ''}
+			<td><a href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
+				<button>&darr;</button>
+				</a>
+			</td>
+		{/if}
 			{foreach from=$data->colModel item="col"}
 				<td>
 					{if $col->type eq "image"}

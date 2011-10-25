@@ -3,10 +3,9 @@ require_once(LIB_DIR .'DetailTable.php');
 class Comentario extends DetailTable{
 	function __construct() {
 		$this->table = 'comentario';
-		$this->masterTable= 'noticia';
+		$this->masterTable  = 'noticia';
+		$this->masterView   = 'noticia';
 		$this->externalIndex= 'noticia_id';
-		$this->formTemplate = 'comentarioForm.tpl';
-		$this->listTemplate = 'comentarioList.tpl';
 		$this->fields= array(
 				'texto',
 				'usuario_id'
