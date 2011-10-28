@@ -5,6 +5,8 @@ require(SRC_DIR . 'Prueba.php');
 require(SRC_DIR . 'FotoDePrueba.php');
 
 require(SRC_DIR . 'Foto.php');
+require(SRC_DIR . 'Galeria.php');
+require(SRC_DIR . 'Calendario.php');
 require(SRC_DIR . 'Noticia.php');
 require(SRC_DIR . 'Comentario.php');
 require(SRC_DIR . 'Inscripcion.php');
@@ -22,6 +24,8 @@ class Controller extends BasicController{
 		$this->assign('opciones', array(
 			'Inicio'          => 'inicio',
 			'Fotos'           => 'foto',
+			'Galeria'         => 'galeria',
+			'Calendario'      => 'calendario',
 			'Pilotos'         => 'piloto',
 			'Pruebas'         => 'prueba',
 			'Inscripciones'   => 'carreraConInscripciones',
@@ -42,17 +46,23 @@ class Controller extends BasicController{
 			//decide cambiar o no de vista, segun permisos
 		}
 		switch($this->view){
-		case 'alumno':
-			$object = new Alumno;
-			break;
 		case 'usuario':
 			$object = new Usuario; 
+			break;
+		case 'imprimir':
+			$object = new Imprimir; 
 			break;
 		case 'inscripcion':
 			$object = new Inscripcion; 
 			break;
 		case 'llegada':
 			$object = new Llegada; 
+			break;
+		case 'galeria':
+			$object = new Galeria; 
+			break;
+		case 'calendario':
+			$object = new Calendario; 
 			break;
 		case 'foto':
 			$object = new Foto; 

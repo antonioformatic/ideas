@@ -30,7 +30,7 @@ function reloadLookups(){
 }
 $(function() {
 	$(".date").each(function(){
-		$(this).datepicker({dateFormat:'yy/mm/dd'});
+		$(this).datepicker({dateFormat:'yy-mm-dd'});
 	});
 	$(".lookup").each(function(){
 		var comp = $(this); 

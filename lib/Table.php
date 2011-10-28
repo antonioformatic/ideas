@@ -127,8 +127,10 @@ class Table{
 			if($this->isValidForm($_POST)) {
 				if($_SESSION['db_action']== 'update'){
 					$this->updateEntry($_POST);
+					$this->onUpdateEntry($_POST);
 				}else{
 					$this->addEntry($_POST);
+					$this->onAddEntry($_POST);
 				}
 				$this->displayList($this->getRecords());
 			} else {
@@ -140,6 +142,10 @@ class Table{
 			$this->displayList($this->getRecords());        
 			break;   
 		}
+	}
+	function onAddEntry($data){
+	}
+	function onUpdateEntry($data){
 	}
 	function goFirst(){
 		$this->fromRec = 0;
