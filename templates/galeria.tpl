@@ -1,8 +1,15 @@
 {include file="header.tpl"}
 {include file="menu.tpl"}
-{foreach from=$fotos item="foto"}
-<form action=  "{$SCRIPT_NAME}?action=orderBy" method="post">
-	<a href="{$SCRIPT_NAME}?action=foto&fotoId={$foto['id']}"><img src="{$foto['url']}"< /img></a>
-{/foreach}
+<div class="pikachoose">
+	<ul id="pikame" class="jcarousel-skin-pika">
+	{foreach from=$fotos item="foto"}
+		<li>
+			<a href="{$foto['content']}">
+				<img src="{$foto['url']}"/>
+			</a>
+		</li>
+	{/foreach}
+	</ul>
+</div>
 
 {include file="footer.tpl"}

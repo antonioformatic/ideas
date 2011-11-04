@@ -29,6 +29,7 @@ function reloadLookups(){
 	});
 }
 $(function() {
+	$("#pikame").PikaChoose({carousel:true, carouselVertical:true});
 	$(".date").each(function(){
 		$(this).datepicker({dateFormat:'yy-mm-dd'});
 	});

@@ -57,7 +57,9 @@ class Galeria extends MasterTable{
 		foreach ($albumFeed as $entry) {
 			if ($entry instanceof Zend_Gdata_Photos_PhotoEntry) {
 				$thumb = $entry->getMediaGroup()->getThumbnail();
-				$ret[]= array("url"=> $thumb[1]->getUrl(),"id"=> $entry->getGphotoId()); 
+				$content= $entry->getMediaGroup()->getContent();
+				$content = $content[0]->getUrl();
+				$ret[]= array("url"=> $thumb[1]->getUrl(),"id"=> $entry->getGphotoId(),"content" => $content); 
 			}
 		}
 		return $ret;
