@@ -29,7 +29,16 @@ function reloadLookups(){
 	});
 }
 $(function() {
-	$("#pikame").PikaChoose({carousel:true, carouselVertical:true});
+	$("#pikame").PikaChoose({
+		carousel:true, 
+		carouselVertical:true,
+		text: { 
+			play: "", 
+			stop: "", 
+			previous: "", 
+			next: "" 
+		}
+	});
 	$(".date").each(function(){
 		$(this).datepicker({dateFormat:'yy-mm-dd'});
 	});

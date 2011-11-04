@@ -5,11 +5,10 @@
 	{foreach from=$fotos item="foto"}
 		<li>
 			<a href="{$foto['content']}">
-				<img src="{$foto['url']}"/>
+				<img src="{$foto['content']}"/>
 			</a>
 		</li>
 	{/foreach}
 	</ul>
 </div>
-
 {include file="footer.tpl"}
