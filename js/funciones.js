@@ -79,3 +79,31 @@ $(function() {
 	});
 	reloadLookups();	
 });
+$(function() {
+	$("#mapa").change(function(){
+	var geocoder = new google.maps.Geocoder();
+	var address = $("#mapa").val();
+	geocoder.geocode( 
+		{ 'address': address}, 
+		function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				var latlng = new google.maps.LatLng(0,0);
+				var myOptions = {
+					zoom: 17,
+					center: latlng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				}
+				var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: map, 
+					position: results[0].geometry.location
+				});
+			} else {
+				alert("No encuentro ese lugar" + status);
+			}
+		}
+	);
+	});
+	$("#mapa").change();
+});

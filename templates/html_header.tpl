@@ -1,7 +1,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="css/jquery.ui.all.css">
-	<link rel="stylesheet" href="css/left.css">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.ui.all.css">
+	<link rel="stylesheet" type="text/css" href="css/left.css">
 	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
 	<style>
@@ -10,6 +11,7 @@
 		}
 	</style>
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAROMagOEmVvKxc67sTMKv9BT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTBexYVxC2gu8hVZn7bIELZTdjrxQ"> </script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/jquery.pikachoose.js"></script>
 	<script type="text/javascript" src="js/funciones.js"></script>

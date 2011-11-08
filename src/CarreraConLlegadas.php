@@ -34,7 +34,7 @@ class CarreraConLlegadas extends MasterTable{
 			"colModel" : [
 				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
 				{"type":"date", "display": "Fecha",    "value" : "fecha",    "width" : 250 },
-				{"type":"text", "display": "Lugar",    "value" : "lugar",    "width" : 150 },
+				{"type":"mapa", "display": "Lugar",    "value" : "lugar",    "width" : 150 },
 				{"type":"text", "display": "Distancia","value" : "distancia","width" : 150 },
 				{"type":"text", "display": "Mapa",     "value" : "mapa",     "width" : 150 } 
 			]
