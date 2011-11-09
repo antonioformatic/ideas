@@ -33,7 +33,7 @@
 			<div>
 			<input type="text" id="mapa" name="{$col->value}" value="{$formVars.{$col->value}|escape}" />
 			</div>
-			<div id="map_canvas" style="height:300px;width:600px"></div>
+			<div id="map_canvas" style="height:400px;width:800px"></div>
 		{elseif $col->type eq "masterId"}
 			<input type="hidden" name="{$col->value}" value="{$masterId}" />
 		{elseif $col->type eq "lookup"}
